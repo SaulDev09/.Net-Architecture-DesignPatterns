@@ -1,17 +1,709 @@
 {
   "format": 1,
   "restore": {
-    "C:\\01S\\03_c_ex\\29-udemy-basic\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj": {}
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj": {}
   },
   "projects": {
-    "C:\\01S\\03_c_ex\\29-udemy-basic\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj": {
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy-basic\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj",
-        "projectName": "Saul.Test.Services.WebAPI",
-        "projectPath": "C:\\01S\\03_c_ex\\29-udemy-basic\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj",
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj",
+        "projectName": "Saul.Test.Application.DTO",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj",
         "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
-        "outputPath": "C:\\01S\\03_c_ex\\29-udemy-basic\\Saul.Test\\Saul.Test.Services.WebAPI\\obj\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\Saul.Test.Application.Interface.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\Saul.Test.Application.Interface.csproj",
+        "projectName": "Saul.Test.Application.Interface",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\Saul.Test.Application.Interface.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Main\\Saul.Test.Application.Main.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Main\\Saul.Test.Application.Main.csproj",
+        "projectName": "Saul.Test.Application.Main",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Main\\Saul.Test.Application.Main.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Main\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\Saul.Test.Application.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\Saul.Test.Application.Interface.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Core\\Saul.Test.Domain.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Core\\Saul.Test.Domain.Core.csproj",
+        "projectName": "Saul.Test.Domain.Core",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Core\\Saul.Test.Domain.Core.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj",
+        "projectName": "Saul.Test.Domain.Entity",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj",
+        "projectName": "Saul.Test.Domain.Interface",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\Saul.Test.Infrastructure.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\Saul.Test.Infrastructure.Data.csproj",
+        "projectName": "Saul.Test.Infrastructure.Data",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\Saul.Test.Infrastructure.Data.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj",
+        "projectName": "Saul.Test.Infrastructure.Interface",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Repository\\Saul.Test.Infrastructure.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Repository\\Saul.Test.Infrastructure.Repository.csproj",
+        "projectName": "Saul.Test.Infrastructure.Repository",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Repository\\Saul.Test.Infrastructure.Repository.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\Saul.Test.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\Saul.Test.Infrastructure.Data.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[1.50.5, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj",
+        "projectName": "Saul.Test.Services.WebAPI",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Services.WebAPI\\Saul.Test.Services.WebAPI.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Services.WebAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
@@ -33,7 +725,44 @@
         "frameworks": {
           "netcoreapp2.2": {
             "targetAlias": "netcoreapp2.2",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\Saul.Test.Application.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Interface\\Saul.Test.Application.Interface.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Main\\Saul.Test.Application.Main.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.Main\\Saul.Test.Application.Main.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Core\\Saul.Test.Domain.Core.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Core\\Saul.Test.Domain.Core.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Interface\\Saul.Test.Domain.Interface.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\Saul.Test.Infrastructure.Data.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Data\\Saul.Test.Infrastructure.Data.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Interface\\Saul.Test.Infrastructure.Interface.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Repository\\Saul.Test.Infrastructure.Repository.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Infrastructure.Repository\\Saul.Test.Infrastructure.Repository.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Logging\\Saul.Test.Transversal.Logging.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Logging\\Saul.Test.Transversal.Logging.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Mapper\\Saul.Test.Transversal.Mapper.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Mapper\\Saul.Test.Transversal.Mapper.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -51,6 +780,14 @@
         "netcoreapp2.2": {
           "targetAlias": "netcoreapp2.2",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
             "Microsoft.AspNetCore.App": {
               "suppressParent": "All",
               "target": "Package",
@@ -66,6 +803,228 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj",
+        "projectName": "Saul.Test.Transversal.Common",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\Saul.Test.Transversal.Common.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Logging\\Saul.Test.Transversal.Logging.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Logging\\Saul.Test.Transversal.Logging.csproj",
+        "projectName": "Saul.Test.Transversal.Logging",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Logging\\Saul.Test.Transversal.Logging.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Logging\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Mapper\\Saul.Test.Transversal.Mapper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Mapper\\Saul.Test.Transversal.Mapper.csproj",
+        "projectName": "Saul.Test.Transversal.Mapper",
+        "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Mapper\\Saul.Test.Transversal.Mapper.csproj",
+        "packagesPath": "C:\\Users\\aneu_\\.nuget\\packages\\",
+        "outputPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Transversal.Mapper\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\aneu_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
+            "projectReferences": {
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Application.DTO\\Saul.Test.Application.DTO.csproj"
+              },
+              "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj": {
+                "projectPath": "C:\\01S\\03_c_ex\\29-udemy\\Saul.Test\\Saul.Test.Domain.Entity\\Saul.Test.Domain.Entity.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
               "autoReferenced": true
             }
           },

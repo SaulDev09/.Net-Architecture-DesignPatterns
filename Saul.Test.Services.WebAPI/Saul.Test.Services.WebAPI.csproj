@@ -9,8 +9,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="8.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Saul.Test.Application.DTO\Saul.Test.Application.DTO.csproj" />
+    <ProjectReference Include="..\Saul.Test.Application.Interface\Saul.Test.Application.Interface.csproj" />
+    <ProjectReference Include="..\Saul.Test.Application.Main\Saul.Test.Application.Main.csproj" />
+    <ProjectReference Include="..\Saul.Test.Domain.Core\Saul.Test.Domain.Core.csproj" />
+    <ProjectReference Include="..\Saul.Test.Domain.Entity\Saul.Test.Domain.Entity.csproj" />
+    <ProjectReference Include="..\Saul.Test.Domain.Interface\Saul.Test.Domain.Interface.csproj" />
+    <ProjectReference Include="..\Saul.Test.Infrastructure.Data\Saul.Test.Infrastructure.Data.csproj" />
+    <ProjectReference Include="..\Saul.Test.Infrastructure.Interface\Saul.Test.Infrastructure.Interface.csproj" />
+    <ProjectReference Include="..\Saul.Test.Infrastructure.Repository\Saul.Test.Infrastructure.Repository.csproj" />
+    <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
+    <ProjectReference Include="..\Saul.Test.Transversal.Logging\Saul.Test.Transversal.Logging.csproj" />
+    <ProjectReference Include="..\Saul.Test.Transversal.Mapper\Saul.Test.Transversal.Mapper.csproj" />
   </ItemGroup>
 
 </Project>
