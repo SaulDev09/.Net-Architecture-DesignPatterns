@@ -21,6 +21,7 @@ namespace Saul.Test.Services.WebAPI
 {
     public class Startup
     {
+        readonly string myPolicy = "SaulTest";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -32,6 +33,10 @@ namespace Saul.Test.Services.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(x => x.AddProfile(new MappingsProfile()));
+
+            services.AddCors(x => x.AddPolicy(myPolicy, builder => builder.WithOrigins(Configuration["Config:OriginCors"])
+            .AllowAnyHeader()
+            .AllowAnyMethod()));
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2).
                 AddJsonOptions(options =>
@@ -58,6 +63,8 @@ namespace Saul.Test.Services.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(myPolicy);
 
             app.UseMvc();
         }
