@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using Saul.Test.Application.DTO;
@@ -41,6 +43,90 @@ namespace Saul.Test.Application.Main
                 response.Message = ex.Message;
             }
             return response;
+        }
+
+        public async Task<Response<bool>> Update(CustomersDto customerDto)
+        {
+            var response = new Response<bool>();
+            try
+            {
+                var customer = _mapper.Map<Customers>(customerDto);
+                response.Data = await _customersDomain.Update(customer);
+                if (response.Data)
+                {
+                    response.IsSuccess = true;
+                    response.Message = "Data updated";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<Response<bool>> Delete(string customerId)
+        {
+            var response = new Response<bool>();
+            try
+            {
+                response.Data = await _customersDomain.Delete(customerId);
+                if (response.Data)
+                {
+                    response.IsSuccess = true;
+                    response.Message = "Data deleted";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<Response<CustomersDto>> Get(string customerId)
+        {
+            var response = new Response<CustomersDto>();
+            try
+            {
+                var customer = await _customersDomain.Get(customerId);
+                response.Data = _mapper.Map<CustomersDto>(customer);
+                if (response.Data != null)
+                {
+                    response.IsSuccess = true;
+                    response.Message = "Successful query";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
+
+        public async Task<Response<IEnumerable<CustomersDto>>> GetAll()
+        {
+            var response = new Response<IEnumerable<CustomersDto>>();
+            try
+            {
+                var customers = await _customersDomain.GetAll();
+                response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
+                if (response.Data != null)
+                {
+                    response.IsSuccess = true;
+                    response.Message = "Successful query";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+
         }
     }
 }

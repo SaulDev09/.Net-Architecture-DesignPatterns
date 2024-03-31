@@ -8,7 +8,7 @@ namespace Saul.Test.Infrastructure.Interface
     {
         Task<bool> Insert(Customers customers);
         Task<bool> Update(Customers customers);
-        Task<bool> Delete(Customers customers);
+        Task<bool> Delete(string customerId);
         Task<Customers> Get(string customerId);
         Task<IEnumerable<Customers>> GetAll();
     }

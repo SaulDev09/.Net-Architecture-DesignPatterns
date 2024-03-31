@@ -36,5 +36,51 @@ namespace Saul.Test.Services.WebAPI.Controllers
         {
             return View();
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Update([FromBody] CustomersDto customersDto)
+        {
+            if (customersDto == null)
+                return BadRequest();
+
+            var response = await _customersApplication.Update(customersDto);
+            if (response.IsSuccess)
+                return Ok(response);
+
+            return BadRequest(response.Message);
+        }
+
+        [HttpDelete("{customerId}")]
+        public async Task<IActionResult> Delete(string customerId)
+        {
+            if (string.IsNullOrEmpty(customerId))
+                return BadRequest();
+
+            var response = await _customersApplication.Delete(customerId);
+            if (response.IsSuccess)
+                return Ok(response);
+
+            return BadRequest(response.Message);
+        }
+
+        [HttpGet("{customerId}")]
+        public async Task<IActionResult> Get(string customerId)
+        {
+            var response = await _customersApplication.Get(customerId);
+            if (response.IsSuccess)
+                return Ok(response);
+
+            return BadRequest(response.Message);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var response = await _customersApplication.GetAll();
+            if (response.IsSuccess)
+                return Ok(response);
+
+            return BadRequest(response.Message);
+        }
     }
 }

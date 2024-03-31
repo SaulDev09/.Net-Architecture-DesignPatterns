@@ -10,5 +10,9 @@ namespace Saul.Test.Application.Interface
     public interface ICustomersApplication
     {
         Task<Response<bool>> Insert(CustomersDto customerDto);
+        Task<Response<bool>> Update(CustomersDto customerDto);
+        Task<Response<bool>> Delete(string customerId);
+        Task<Response<CustomersDto>> Get(string customerId);
+        Task<Response<IEnumerable<CustomersDto>>> GetAll();
     }
 }
