@@ -25,6 +25,7 @@ namespace Saul.Test.Services.WebAPI
 {
     public class Startup
     {
+        readonly string myPolicy = "policySaulTest";
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -36,6 +37,11 @@ namespace Saul.Test.Services.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(x => x.AddProfile(new MappingsProfile()));
+            services.AddCors(options => options.AddPolicy(myPolicy, builder => builder.WithOrigins(Configuration["Config:OriginCors"])
+                                                                                        .AllowAnyHeader()
+                                                                                        .AllowAnyMethod()
+                                                                                        ));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver(); });
 
@@ -81,6 +87,7 @@ namespace Saul.Test.Services.WebAPI
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
             });
+            app.UseCors(myPolicy);
 
             app.UseMvc();
         }
