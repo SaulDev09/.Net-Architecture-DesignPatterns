@@ -5,7 +5,7 @@ using Saul.Test.Application.Interface;
 
 namespace Saul.Test.Services.WebAPI.Controllers
 {
-    [Route("api/{controller}/{action}")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomersController : Controller
     {

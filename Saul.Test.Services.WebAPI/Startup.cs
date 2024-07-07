@@ -19,6 +19,7 @@ using Saul.Test.Domain.Interface;
 using Saul.Test.Domain.Core;
 using Saul.Test.Infrastructure.Interface;
 using Saul.Test.Infrastructure.Repository;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace Saul.Test.Services.WebAPI
 {
@@ -43,6 +44,28 @@ namespace Saul.Test.Services.WebAPI
             services.AddScoped<ICustomersApplication, CustomersApplication>();
             services.AddScoped<ICustomersDomain, CustomersDomain>();
             services.AddScoped<ICustomersRepository, CustomersRepository>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Version = "v1",
+                    Title = "Saul Test",
+                    Description = "Studying Architecture",
+                    TermsOfService = "None",
+                    Contact = new Contact
+                    {
+                        Name = "Saul Chipana",
+                        Email = "Saul.Dev09@gmail.com",
+                        Url = ""
+                    },
+                    License = new License
+                    {
+                        Name = "Use to Study",
+                        Url = ""
+                    }
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +75,12 @@ namespace Saul.Test.Services.WebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+            });
 
             app.UseMvc();
         }
