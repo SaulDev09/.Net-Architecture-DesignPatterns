@@ -51,6 +51,10 @@ namespace Saul.Test.Services.WebAPI
             services.AddScoped<ICustomersDomain, CustomersDomain>();
             services.AddScoped<ICustomersRepository, CustomersRepository>();
 
+            services.AddScoped<IUsersApplication, UsersApplication>();
+            services.AddScoped<IUsersDomain, UsersDomain>();
+            services.AddScoped<IUsersRepository, UsersRepository>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info
