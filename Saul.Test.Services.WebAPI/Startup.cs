@@ -20,6 +20,10 @@ using Saul.Test.Domain.Core;
 using Saul.Test.Infrastructure.Interface;
 using Saul.Test.Infrastructure.Repository;
 using Swashbuckle.AspNetCore.Swagger;
+using Saul.Test.Services.WebAPI.Helpers;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
 
 namespace Saul.Test.Services.WebAPI
 {
@@ -45,6 +49,10 @@ namespace Saul.Test.Services.WebAPI
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver(); });
 
+            var appSettingsSection = Configuration.GetSection("Config");
+            services.Configure<AppSettings>(appSettingsSection);
+            var appSettings = appSettingsSection.Get<AppSettings>();
+
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<IConnectionFactory, ConnectionFactory>();
             services.AddScoped<ICustomersApplication, CustomersApplication>();
@@ -54,6 +62,51 @@ namespace Saul.Test.Services.WebAPI
             services.AddScoped<IUsersApplication, UsersApplication>();
             services.AddScoped<IUsersDomain, UsersDomain>();
             services.AddScoped<IUsersRepository, UsersRepository>();
+
+            var key = Encoding.ASCII.GetBytes(appSettings.Secret);
+            var Issuer = appSettings.Issuer;
+            var Audience = appSettings.Audience;
+
+            // Validate and Verify JWTBearer token
+            services.AddAuthentication(x =>
+            {
+                x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).
+            AddJwtBearer(x =>
+            {
+                x.Events = new JwtBearerEvents
+                {
+                    // For example purposes: how to get values from token, userId
+                    OnTokenValidated = context =>
+                    {
+                        var userId = int.Parse(context.Principal.Identity.Name);
+                        return Task.CompletedTask;
+                    },
+
+                    OnAuthenticationFailed = context =>
+                    {
+                        if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
+                        {
+                            context.Response.Headers.Add("Token-Expired", "true");
+                        }
+                        return Task.CompletedTask;
+                    }
+                };
+                x.RequireHttpsMetadata = false;
+                x.SaveToken = false;
+                x.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(key),
+                    ValidateIssuer = true,
+                    ValidIssuer = Issuer,
+                    ValidateAudience = true,
+                    ValidAudience = Audience,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero
+                };
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -75,6 +128,19 @@ namespace Saul.Test.Services.WebAPI
                         Url = ""
                     }
                 });
+
+                c.AddSecurityDefinition("Authorization", new ApiKeyScheme
+                {
+                    Description = "Authorization by API key.",
+                    In = "header",
+                    Type = "apiKey",
+                    Name = "Authorization"
+                });
+
+                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                {
+                    { "Authorization", new string[0] }
+                });
             });
         }
 
@@ -92,6 +158,7 @@ namespace Saul.Test.Services.WebAPI
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
             });
             app.UseCors(myPolicy);
+            app.UseAuthentication();
 
             app.UseMvc();
         }
