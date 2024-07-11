@@ -1,8 +1,9 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface;
+using Saul.Test.Transversal.Common;
+using System.Threading.Tasks;
 
 namespace Saul.Test.Services.WebAPI.Controllers
 {
@@ -12,10 +13,12 @@ namespace Saul.Test.Services.WebAPI.Controllers
     public class CustomersController : Controller
     {
         private readonly ICustomersApplication _customersApplication;
+        private readonly ILoggerManager _logger;
 
-        public CustomersController(ICustomersApplication customersApplication)
+        public CustomersController(ICustomersApplication customersApplication, ILoggerManager logger)
         {
             _customersApplication = customersApplication;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -23,7 +26,10 @@ namespace Saul.Test.Services.WebAPI.Controllers
         {
             var response = await _customersApplication.GetAll();
             if (response.IsSuccess)
+            {
+                _logger.LogInfo("Test LogInfo GetAll - request processed.");
                 return Ok(response);
+            }
 
             return BadRequest(response.Message);
         }

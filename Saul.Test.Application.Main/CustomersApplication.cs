@@ -6,7 +6,6 @@ using Saul.Test.Domain.Interface;
 using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Saul.Test.Application.Main
@@ -15,11 +14,13 @@ namespace Saul.Test.Application.Main
     {
         private readonly ICustomersDomain _customersDomain;
         private readonly IMapper _mapper;
+        private readonly ILoggerManager _logger;
 
-        public CustomersApplication(ICustomersDomain customersDomain, IMapper mapper)
+        public CustomersApplication(ICustomersDomain customersDomain, IMapper mapper, ILoggerManager logger)
         {
             _customersDomain = customersDomain;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<Response<bool>> Insert(CustomersDto customersDto)
@@ -117,6 +118,7 @@ namespace Saul.Test.Application.Main
                 {
                     response.IsSuccess = true;
                     response.Message = "Successful query";
+                    _logger.LogInfo("Test LogInfo GetAll - Successful query...");
                 }
             }
             catch (Exception ex)

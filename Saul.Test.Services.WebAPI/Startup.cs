@@ -24,6 +24,7 @@ using Saul.Test.Services.WebAPI.Helpers;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Saul.Test.Transversal.Log4net;
 
 namespace Saul.Test.Services.WebAPI
 {
@@ -53,6 +54,7 @@ namespace Saul.Test.Services.WebAPI
             services.Configure<AppSettings>(appSettingsSection);
             var appSettings = appSettingsSection.Get<AppSettings>();
 
+            services.AddSingleton<ILoggerManager, LoggerManager>();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<IConnectionFactory, ConnectionFactory>();
             services.AddScoped<ICustomersApplication, CustomersApplication>();
