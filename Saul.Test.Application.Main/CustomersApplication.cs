@@ -15,11 +15,13 @@ namespace Saul.Test.Application.Main
     {
         private readonly ICustomersDomain _customersDomain;
         private readonly IMapper _mapper;
+        private readonly IAppLogger<CustomersApplication> _logger;
 
-        public CustomersApplication(ICustomersDomain customersDomain, IMapper mapper)
+        public CustomersApplication(ICustomersDomain customersDomain, IMapper mapper, IAppLogger<CustomersApplication> logger)
         {
             _customersDomain = customersDomain;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<Response<bool>> Insert(CustomersDto customersDto)
@@ -117,12 +119,14 @@ namespace Saul.Test.Application.Main
                 {
                     response.IsSuccess = true;
                     response.Message = "Successful query";
+                    _logger.LogInformation("GetAll");
                 }
             }
             catch (Exception ex)
             {
                 response.IsSuccess = false;
                 response.Message = ex.Message;
+                _logger.LogError(ex.Message);
             }
             return response;
         }

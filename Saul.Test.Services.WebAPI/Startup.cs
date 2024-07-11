@@ -24,6 +24,7 @@ using Saul.Test.Services.WebAPI.Helpers;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Saul.Test.Transversal.Logging;
 
 namespace Saul.Test.Services.WebAPI
 {
@@ -62,6 +63,7 @@ namespace Saul.Test.Services.WebAPI
             services.AddScoped<IUsersApplication, UsersApplication>();
             services.AddScoped<IUsersDomain, UsersDomain>();
             services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped(typeof(IAppLogger<>), typeof(LoggerAdapter<>));
 
             var key = Encoding.ASCII.GetBytes(appSettings.Secret);
             var Issuer = appSettings.Issuer;

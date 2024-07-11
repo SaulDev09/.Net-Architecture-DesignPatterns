@@ -28,6 +28,7 @@
     <ProjectReference Include="..\Saul.Test.Infrastructure.Interface\Saul.Test.Infrastructure.Interface.csproj" />
     <ProjectReference Include="..\Saul.Test.Infrastructure.Repository\Saul.Test.Infrastructure.Repository.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
+    <ProjectReference Include="..\Saul.Test.Transversal.Logging\Saul.Test.Transversal.Logging.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Mapper\Saul.Test.Transversal.Mapper.csproj" />
   </ItemGroup>
 
