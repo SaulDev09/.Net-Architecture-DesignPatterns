@@ -1,10 +1,12 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface;
 
 namespace Saul.Test.Services.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]/[action]")]
     [ApiController]
     public class CustomersController : Controller
