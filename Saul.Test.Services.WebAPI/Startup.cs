@@ -25,6 +25,8 @@ using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Saul.Test.Transversal.Log4net;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace Saul.Test.Services.WebAPI
 {
@@ -41,14 +43,20 @@ namespace Saul.Test.Services.WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAutoMapper(x => x.AddProfile(new MappingsProfile()));
+            //services.AddAutoMapper(x => x.AddProfile(new MappingsProfile()));
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingsProfile());
+            });
+            IMapper mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddCors(options => options.AddPolicy(myPolicy, builder => builder.WithOrigins(Configuration["Config:OriginCors"])
                                                                                         .AllowAnyHeader()
                                                                                         .AllowAnyMethod()
                                                                                         ));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
-                .AddJsonOptions(options => { options.SerializerSettings.ContractResolver = new Newtonsoft.Json.Serialization.DefaultContractResolver(); });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
             var appSettingsSection = Configuration.GetSection("Config");
             services.Configure<AppSettings>(appSettingsSection);
@@ -112,48 +120,59 @@ namespace Saul.Test.Services.WebAPI
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info
+                c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
                     Title = "Saul Test",
                     Description = "Studying Architecture",
-                    TermsOfService = "None",
-                    Contact = new Contact
+                    TermsOfService = new Uri("https://CPS.com"),
+                    Contact = new OpenApiContact
                     {
                         Name = "Saul Chipana",
                         Email = "Saul.Dev09@gmail.com",
-                        Url = ""
+                        Url = new Uri("https://CPS.com")
                     },
-                    License = new License
+                    License = new OpenApiLicense
                     {
                         Name = "Use to Study",
-                        Url = ""
+                        Url = new Uri("https://CPS.com")
                     }
                 });
 
-                c.AddSecurityDefinition("Authorization", new ApiKeyScheme
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Authorization by API key.",
-                    In = "header",
-                    Type = "apiKey",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
                     Name = "Authorization"
                 });
 
-                c.AddSecurityRequirement(new Dictionary<string, IEnumerable<string>>
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
-                    { "Authorization", new string[0] }
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+                        },
+                        new string[]{}
+                    }
                 });
             });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRouting();
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -161,8 +180,11 @@ namespace Saul.Test.Services.WebAPI
             });
             app.UseCors(myPolicy);
             app.UseAuthentication();
-
-            app.UseMvc();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

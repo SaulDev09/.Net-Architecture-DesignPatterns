@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Saul.Test.Services.WebAPI.Controllers
 {
     [Authorize]
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class CustomersController : Controller
     {
@@ -21,7 +21,7 @@ namespace Saul.Test.Services.WebAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
             var response = await _customersApplication.GetAll();
@@ -34,7 +34,7 @@ namespace Saul.Test.Services.WebAPI.Controllers
             return BadRequest(response.Message);
         }
 
-        [HttpGet("{customerId}")]
+        [HttpGet("Get/{customerId}")]
         public async Task<IActionResult> Get(string customerId)
         {
             var response = await _customersApplication.Get(customerId);
@@ -45,7 +45,7 @@ namespace Saul.Test.Services.WebAPI.Controllers
 
         }
 
-        [HttpPost]
+        [HttpPost("Insert")]
         public async Task<IActionResult> Insert([FromBody] CustomersDto customersDto)
         {
             if (customersDto == null)
@@ -58,7 +58,7 @@ namespace Saul.Test.Services.WebAPI.Controllers
             return BadRequest(response.Message);
         }
 
-        [HttpPut]
+        [HttpPut("Update")]
         public async Task<IActionResult> Update([FromBody] CustomersDto customersDto)
         {
             if (customersDto == null)
@@ -71,7 +71,7 @@ namespace Saul.Test.Services.WebAPI.Controllers
             return BadRequest(response.Message);
         }
 
-        [HttpDelete("{customerId}")]
+        [HttpDelete("Delete/{customerId}")]
         public async Task<IActionResult> Delete(string customerId)
         {
             if (string.IsNullOrEmpty(customerId))
