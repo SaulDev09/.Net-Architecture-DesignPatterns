@@ -43,3 +43,16 @@ In Configure, before app.UseMvc();, Add:
 5. Verify in controller, Route:  [Route("api/[controller]/[action]")], with [] not with {}
 
 Detail [here](https://github.com/SaulDev09/.Net-DDD/commit/9a8d5422987aad19be8a44c8ae65da707cd86e9c):
+
+
+Docker:
+------------
+
+        cd C:\FOLDER
+        docker image build -t saul.test:1.0.1 -f .\Saul.Test.Services.WebAPI\Dockerfile .
+        docker image ls
+        docker container run --name saul.test -d -p 8050:80 IMAGE_ID
+        docker container ls
+        docker container logs CONTAINER_ID
+           
+localhost:8050/swagger
