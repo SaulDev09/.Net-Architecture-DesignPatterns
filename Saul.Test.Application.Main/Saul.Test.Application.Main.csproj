@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Saul.Test.Application.Interface\Saul.Test.Application.Interface.csproj" />
+    <ProjectReference Include="..\Saul.Test.Application.Validator\Saul.Test.Application.Validator.csproj" />
     <ProjectReference Include="..\Saul.Test.Domain.Interface\Saul.Test.Domain.Interface.csproj" />
   </ItemGroup>
 

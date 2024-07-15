@@ -6,6 +6,7 @@ using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Saul.Test.Application.Validator;
 
 namespace Saul.Test.Application.Main
 {
@@ -13,19 +14,24 @@ namespace Saul.Test.Application.Main
     {
         private readonly IUsersDomain _usersDomain;
         private readonly IMapper _mapper;
+        private readonly UsersDtoValidator _validator;
 
-        public UsersApplication(IUsersDomain usersDomain, IMapper mapper)
+        public UsersApplication(IUsersDomain usersDomain, IMapper mapper, UsersDtoValidator validator)
         {
             _usersDomain = usersDomain;
             _mapper = mapper;
+            _validator = validator;
         }
 
         public Response<UsersDto> Authenticate(string userName, string password)
         {
             var response = new Response<UsersDto>();
-            if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(password))
+            var validation = _validator.Validate(new UsersDto() { UserName = userName, Password = password });
+
+            if (!validation.IsValid)
             {
-                response.Message = "The params can't be null";
+                response.Message = "Validation Error";
+                response.Errors = validation.Errors;
                 return response;
             }
 
