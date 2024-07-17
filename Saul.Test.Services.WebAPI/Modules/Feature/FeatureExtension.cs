@@ -13,7 +13,7 @@ namespace Saul.Test.Services.WebAPI.Modules.Feature
                                                                             .AllowAnyMethod()
                                                                             ));
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            services.AddMvc();
             return services;
         }
 
