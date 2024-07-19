@@ -40,6 +40,12 @@ namespace Saul.Test.Services.WebAPI.Modules.Swagger
                     Url = new Uri("https://CPS.com")
                 }
             };
+
+            if (description.IsDeprecated)
+            {
+                info.Description += "This version is obsolete";
+            }
+
             return info;
         }
     }
