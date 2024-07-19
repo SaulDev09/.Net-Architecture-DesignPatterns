@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Saul.Test.Services.WebAPI.Controllers.v2
 {
     [Authorize]
-    [Route("api/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("2.0")]
     public class CustomersController : Controller

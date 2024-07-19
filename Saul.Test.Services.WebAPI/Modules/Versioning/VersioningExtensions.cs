@@ -13,12 +13,14 @@ namespace Saul.Test.Services.WebAPI.Modules.Versioning
                 o.AssumeDefaultVersionWhenUnspecified = true;
                 o.ReportApiVersions = true;
                 //o.ApiVersionReader = new QueryStringApiVersionReader("api-version");
-                o.ApiVersionReader = new HeaderApiVersionReader("api-version");
+                //o.ApiVersionReader = new HeaderApiVersionReader("api-version");
+                o.ApiVersionReader = new UrlSegmentApiVersionReader();
             });
 
             services.AddVersionedApiExplorer(o =>
             {
                 o.GroupNameFormat = "'v'VVV";
+                o.SubstituteApiVersionInUrl = true;
             });
             return services;
         }
