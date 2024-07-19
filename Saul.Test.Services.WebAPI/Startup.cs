@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
@@ -6,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Saul.Test.Services.WebAPI.Modules.Authentication;
 using Saul.Test.Services.WebAPI.Modules.Feature;
+using Saul.Test.Services.WebAPI.Modules.HealthCheck;
 using Saul.Test.Services.WebAPI.Modules.Injection;
 using Saul.Test.Services.WebAPI.Modules.Mapper;
 using Saul.Test.Services.WebAPI.Modules.Swagger;
@@ -35,6 +37,7 @@ namespace Saul.Test.Services.WebAPI
             services.AddVersioning();
             services.AddSwagger();
             services.AddValidator();
+            services.AddHealthCheck(this.Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -61,6 +64,12 @@ namespace Saul.Test.Services.WebAPI
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecksUI();
+                endpoints.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
+                {
+                    Predicate = _ => true,
+                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                });
             });
         }
     }
