@@ -5,11 +5,12 @@ using Saul.Test.Application.Interface;
 using Saul.Test.Transversal.Common;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Services.WebAPI.Controllers
+namespace Saul.Test.Services.WebAPI.Controllers.v2
 {
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]
+    [ApiVersion("2.0")]
     public class CustomersController : Controller
     {
         private readonly ICustomersApplication _customersApplication;
@@ -58,9 +59,13 @@ namespace Saul.Test.Services.WebAPI.Controllers
             return BadRequest(response.Message);
         }
 
-        [HttpPut("Update")]
-        public async Task<IActionResult> Update([FromBody] CustomersDto customersDto)
+        [HttpPut("Update/{customerId}")]
+        public async Task<IActionResult> Update(string customerId, [FromBody] CustomersDto customersDto)
         {
+            var customerDto = await _customersApplication.Get(customerId);
+            if (customerDto.Data == null)
+                return NotFound(customerDto.Message);
+
             if (customersDto == null)
                 return BadRequest();
 
