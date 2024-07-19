@@ -12,7 +12,8 @@ namespace Saul.Test.Services.WebAPI.Modules.Versioning
                 o.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
                 o.AssumeDefaultVersionWhenUnspecified = true;
                 o.ReportApiVersions = true;
-                o.ApiVersionReader = new QueryStringApiVersionReader("api-version");
+                //o.ApiVersionReader = new QueryStringApiVersionReader("api-version");
+                o.ApiVersionReader = new HeaderApiVersionReader("api-version");
             });
 
             services.AddVersionedApiExplorer(o =>
