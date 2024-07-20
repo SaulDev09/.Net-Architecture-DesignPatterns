@@ -2,7 +2,7 @@
 
 namespace Saul.Test.Infrastructure.Interface
 {
-    public interface IUsersRepository
+    public interface IUsersRepository : IGenericRepository<Users>
     {
         Users Authenticate(string userName, string password);
     }

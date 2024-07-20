@@ -2,6 +2,8 @@
 using Saul.Test.Domain.Entity;
 using Saul.Test.Infrastructure.Data;
 using Saul.Test.Infrastructure.Interface;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Saul.Test.Infrastructure.Repository
 {
@@ -27,6 +29,31 @@ namespace Saul.Test.Infrastructure.Repository
                 return user;
             }
 
+        }
+
+        public Task<bool> Delete(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<Users> Get(string id)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<IEnumerable<Users>> GetAll()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> Insert(Users entity)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<bool> Update(Users entity)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
