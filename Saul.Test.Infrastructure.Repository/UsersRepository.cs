@@ -1,22 +1,22 @@
 ﻿using Dapper;
 using Saul.Test.Domain.Entity;
+using Saul.Test.Infrastructure.Data;
 using Saul.Test.Infrastructure.Interface;
-using Saul.Test.Transversal.Common;
 
 namespace Saul.Test.Infrastructure.Repository
 {
-    public class UsersRepository: IUsersRepository
+    public class UsersRepository : IUsersRepository
     {
-        public readonly IConnectionFactory _connectionFactory;
+        private readonly DapperContext _context;
 
-        public UsersRepository(IConnectionFactory connectionFactory)
+        public UsersRepository(DapperContext context)
         {
-            _connectionFactory = connectionFactory;
+            _context = context;
         }
 
         public Users Authenticate(string userName, string password)
         {
-            using (var connection = _connectionFactory.GetConnection)
+            using (var connection = _context.CreateConnection())
             {
                 var query = "UsersGetByUserAndPassword";
                 var parameters = new DynamicParameters();

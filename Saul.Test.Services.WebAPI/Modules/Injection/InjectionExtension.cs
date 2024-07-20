@@ -18,7 +18,7 @@ namespace Saul.Test.Services.WebAPI.Modules.Injection
         {
             services.AddSingleton<ILoggerManager, LoggerManager>();
             services.AddSingleton<IConfiguration>(configuration);
-            services.AddSingleton<IConnectionFactory, ConnectionFactory>();
+            services.AddSingleton<DapperContext>();
             services.AddScoped<ICustomersApplication, CustomersApplication>();
             services.AddScoped<ICustomersDomain, CustomersDomain>();
             services.AddScoped<ICustomersRepository, CustomersRepository>();

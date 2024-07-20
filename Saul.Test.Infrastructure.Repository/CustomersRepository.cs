@@ -1,26 +1,25 @@
-﻿using System.Collections.Generic;
-using System;
-using System.Threading.Tasks;
+﻿using Dapper;
 using Saul.Test.Domain.Entity;
+using Saul.Test.Infrastructure.Data;
 using Saul.Test.Infrastructure.Interface;
-using Saul.Test.Transversal.Common;
-using Dapper;
+using System.Collections.Generic;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Saul.Test.Infrastructure.Repository
 {
     public class CustomersRepository : ICustomersRepository
     {
-        public readonly IConnectionFactory _connectionFactory;
+        private readonly DapperContext _context;
 
-        public CustomersRepository(IConnectionFactory connectionFactory)
+        public CustomersRepository(DapperContext context)
         {
-            _connectionFactory = connectionFactory;
+            _context = context;
         }
 
         public async Task<bool> Insert(Customers customers)
         {
-            using (var connection = _connectionFactory.GetConnection)
+            using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersInsert";
                 var parameters = new DynamicParameters();
@@ -43,7 +42,7 @@ namespace Saul.Test.Infrastructure.Repository
 
         public async Task<bool> Update(Customers customers)
         {
-            using (var connection = _connectionFactory.GetConnection)
+            using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersUpdate";
                 var parameters = new DynamicParameters();
@@ -66,7 +65,7 @@ namespace Saul.Test.Infrastructure.Repository
 
         public async Task<bool> Delete(string customerId)
         {
-            using (var connection = _connectionFactory.GetConnection)
+            using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersDelete";
                 var parameters = new DynamicParameters();
@@ -79,7 +78,7 @@ namespace Saul.Test.Infrastructure.Repository
 
         public async Task<Customers> Get(string customerId)
         {
-            using (var connection = _connectionFactory.GetConnection)
+            using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersGetByID";
                 var parameters = new DynamicParameters();
@@ -92,7 +91,7 @@ namespace Saul.Test.Infrastructure.Repository
 
         public async Task<IEnumerable<Customers>> GetAll()
         {
-            using (var connection = _connectionFactory.GetConnection)
+            using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersList";
                 var result = await connection.QueryAsync<Customers>(query, commandType: CommandType.StoredProcedure);

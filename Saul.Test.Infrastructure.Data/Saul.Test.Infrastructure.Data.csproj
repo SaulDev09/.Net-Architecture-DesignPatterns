@@ -9,8 +9,4 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
-  </ItemGroup>
-
 </Project>

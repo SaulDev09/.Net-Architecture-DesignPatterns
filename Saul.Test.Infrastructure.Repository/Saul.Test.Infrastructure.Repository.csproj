@@ -9,8 +9,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Saul.Test.Infrastructure.Data\Saul.Test.Infrastructure.Data.csproj" />
     <ProjectReference Include="..\Saul.Test.Infrastructure.Interface\Saul.Test.Infrastructure.Interface.csproj" />
-    <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
   </ItemGroup>
 
 </Project>
