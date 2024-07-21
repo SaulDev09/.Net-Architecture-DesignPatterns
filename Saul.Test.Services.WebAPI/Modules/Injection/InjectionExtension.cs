@@ -26,6 +26,7 @@ namespace Saul.Test.Services.WebAPI.Modules.Injection
             services.AddScoped<IUsersApplication, UsersApplication>();
             services.AddScoped<IUsersDomain, UsersDomain>();
             services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             return services;
         }
