@@ -99,6 +99,28 @@ namespace Saul.Test.Infrastructure.Repository
             }
         }
 
+        public async Task<IEnumerable<Customers>> GetAllWithPagination(int pageNumber, int pageSize)
+        {
+            using (var connection = _context.CreateConnection())
+            {
+                var query = "CustomersListWithPagination";
+                var parameters = new DynamicParameters();
+                parameters.Add("@PageNumber", pageNumber);
+                parameters.Add("@PageSize", pageSize);
+                var result = await connection.QueryAsync<Customers>(query, parameters, commandType: CommandType.StoredProcedure);
+                return result;
+            }
+        }
 
+        public async Task<int> Count()
+        {
+            using (var connection = _context.CreateConnection())
+            {
+                var query = "select count(1) from Customers";
+                var count = await connection.ExecuteScalarAsync<int>(query, commandType: CommandType.Text);
+                return count;
+
+            }
+        }
     }
 }

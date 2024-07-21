@@ -11,5 +11,7 @@ namespace Saul.Test.Domain.Interface
         Task<bool> Delete(string customerId);
         Task<Customers> Get(string customerId);
         Task<IEnumerable<Customers>> GetAll();
+        Task<IEnumerable<Customers>> GetAllWithPagination(int pageNumber, int pageSize);
+        Task<int> Count();
     }
 }

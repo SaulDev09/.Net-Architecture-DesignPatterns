@@ -1,13 +1,7 @@
-﻿using FluentValidation.Results;
-using System.Collections.Generic;
-
-namespace Saul.Test.Transversal.Common
+﻿namespace Saul.Test.Transversal.Common
 {
-    public class Response<T>
+    public class Response<T> : ResponseGeneric<T>
     {
-        public T Data { get; set; }
-        public bool IsSuccess { get; set; }
-        public string Message { get; set; }
-        public IEnumerable<ValidationFailure> Errors { get; set; }
+
     }
 }

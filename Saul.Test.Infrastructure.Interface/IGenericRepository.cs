@@ -10,5 +10,7 @@ namespace Saul.Test.Infrastructure.Interface
         Task<bool> Delete(string id);
         Task<T> Get(string id);
         Task<IEnumerable<T>> GetAll();
+        Task<IEnumerable<T>> GetAllWithPagination(int pageNumber, int pageSize);
+        Task<int> Count();
     }
 }

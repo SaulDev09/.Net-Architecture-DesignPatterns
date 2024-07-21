@@ -39,5 +39,15 @@ namespace Saul.Test.Domain.Core
         {
             return await _unitOfWork.Customers.GetAll();
         }
+
+        public async Task<IEnumerable<Customers>> GetAllWithPagination(int pageNumber, int pageSize)
+        {
+            return await _unitOfWork.Customers.GetAllWithPagination(pageNumber, pageSize);
+        }
+
+        public async Task<int> Count()
+        {
+            return await (_unitOfWork.Customers.Count());
+        }
     }
 }

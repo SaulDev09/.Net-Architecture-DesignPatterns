@@ -128,5 +128,31 @@ namespace Saul.Test.Application.Main
             }
             return response;
         }
+
+        public async Task<ResponsePagination<IEnumerable<CustomersDto>>> GetAllWithPagination(int pageNumber, int pageSize)
+        {
+
+            var response = new ResponsePagination<IEnumerable<CustomersDto>>();
+            try
+            {
+                var customers = await _customersDomain.GetAllWithPagination(pageNumber, pageSize);
+                response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
+                if (response.Data != null)
+                {
+                    response.PageNumber = pageNumber;
+                    response.TotalCount = await _customersDomain.Count();
+                    response.TotalPages = (int)Math.Ceiling(response.TotalCount / (double)pageSize);
+
+                    response.IsSuccess = true;
+                    response.Message = "Successful query";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
     }
 }

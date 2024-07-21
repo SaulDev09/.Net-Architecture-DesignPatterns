@@ -55,5 +55,16 @@ namespace Saul.Test.Infrastructure.Repository
         {
             throw new System.NotImplementedException();
         }
+
+        public Task<IEnumerable<Users>> GetAllWithPagination(int pageNumber, int pageSize)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<int> Count()
+        {
+            throw new System.NotImplementedException();
+        }
+
     }
 }
