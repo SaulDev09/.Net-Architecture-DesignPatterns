@@ -56,3 +56,12 @@ Docker:
         docker container logs CONTAINER_ID
            
 localhost:8050/swagger
+
+Refactoring StartUp in Program:
+------------
+
+Services.WebAPI
+Application > Global Usings > Check "Enable implicit global usings to be declared by the project SDK"
+
+
+
