@@ -56,3 +56,5 @@ app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks
 });
 
 app.Run();
+
+public partial class Program { };
