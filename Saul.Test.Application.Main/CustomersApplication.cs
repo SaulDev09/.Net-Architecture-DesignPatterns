@@ -38,8 +38,9 @@ namespace Saul.Test.Application.Main
             }
             catch (Exception ex)
             {
-                response.IsSuccess = false;
-                response.Message = ex.Message;
+                throw new Exception(ex.Message);
+                //response.IsSuccess = false;
+                //response.Message = ex.Message;
             }
             return response;
         }

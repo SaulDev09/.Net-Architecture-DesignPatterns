@@ -8,6 +8,8 @@ using Saul.Test.Services.WebAPI.Modules.Mapper;
 using Saul.Test.Services.WebAPI.Modules.Swagger;
 using Saul.Test.Services.WebAPI.Modules.Validator;
 using Saul.Test.Services.WebAPI.Modules.Versioning;
+using Saul.Test.Services.WebAPI.Modules.Watch;
+using WatchDog;
 
 string myPolicy = "policySaulTest";
 
@@ -24,6 +26,7 @@ builder.Services.AddVersioning();
 builder.Services.AddSwagger();
 builder.Services.AddValidator();
 builder.Services.AddHealthCheck(builder.Configuration);
+builder.Services.AddWatchDogLog(builder.Configuration);
 
 var app = builder.Build();
 
@@ -43,6 +46,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseWatchDogExceptionLogger();
 app.UseHttpsRedirection();
 app.UseCors(myPolicy);
 app.UseAuthentication();
@@ -53,6 +57,12 @@ app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks
 {
     Predicate = _ => true,
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+});
+
+app.UseWatchDog(conf =>
+{
+    conf.WatchPageUsername = builder.Configuration["WatchDog:WatchPageUsername"];
+    conf.WatchPagePassword = builder.Configuration["WatchDog:WatchPagePassword"];
 });
 
 app.Run();

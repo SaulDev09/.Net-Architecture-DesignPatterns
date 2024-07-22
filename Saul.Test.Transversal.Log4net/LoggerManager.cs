@@ -1,14 +1,14 @@
 ﻿using log4net;
-using log4net.Config;
 using Saul.Test.Transversal.Common;
-using System.IO;
 using System.Reflection;
+using WatchDog;
+
 
 namespace Saul.Test.Transversal.Log4net
 {
     public class LoggerManager : ILoggerManager
     {
-        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod()?.DeclaringType);
 
         public LoggerManager()
         {
@@ -20,21 +20,25 @@ namespace Saul.Test.Transversal.Log4net
         public void LogInfo(string message)
         {
             log.Info(message);
+            WatchLogger.Log(message);
         }
 
         public void LogWarn(string message)
         {
             log.Warn(message);
+            WatchLogger.Log(message);
         }
 
         public void LogDebug(string message)
         {
             log.Debug(message);
+            WatchLogger.Log(message);
         }
 
         public void LogError(string message)
         {
             log.Error(message);
+            WatchLogger.Log(message);
         }
     }
 }

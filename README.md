@@ -64,4 +64,68 @@ Services.WebAPI
 Application > Global Usings > Check "Enable implicit global usings to be declared by the project SDK"
 
 
+WatchDog
+------------
+
+ALTER TABLE WatchDog_Logs
+ALTER COLUMN callingMethod VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchExceptionLog
+ALTER COLUMN typeOf VARCHAR(300)
+
+ALTER TABLE WatchDog_WatchExceptionLog
+ALTER COLUMN path VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchExceptionLog
+ALTER COLUMN method VARCHAR(300)
+
+ALTER TABLE WatchDog_WatchExceptionLog
+ALTER COLUMN QueryString VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchExceptionLog
+ALTER COLUMN EncounteredAt VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchLog
+ALTER COLUMN requestBody VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchLog
+ALTER COLUMN queryString VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchLog
+ALTER COLUMN path VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchLog
+ALTER COLUMN responseHeaders VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchLog
+ALTER COLUMN method VARCHAR(MAX)
+
+ALTER TABLE WatchDog_WatchLog
+ALTER COLUMN host VARCHAR(300)
+
+
+
+Table WatchDog_Logs:
+callingMethod from 100 to MAX
+
+Table WatchDog_WatchExceptionLog
+typeOf from 100 to 300
+path from 100 to MAX
+method from 30 to 300
+queryString from 100 to MAX
+encounteredAt from 100 to MAX
+
+Table WatchDog_WatchLog
+requestBody from 30 to MAX
+queryString from 30 to MAX
+path from 30 to MAX
+responseHeader from 30 to MAX
+method from 30 to MAX
+host from 30 to 300
+
+
+
+
+
+
 
