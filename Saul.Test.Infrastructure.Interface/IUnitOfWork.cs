@@ -6,5 +6,6 @@ namespace Saul.Test.Infrastructure.Interface
     {
         ICustomersRepository Customers { get; }
         IUsersRepository Users { get; }
+        ICategoriesRepository Categories { get; }
     }
 }

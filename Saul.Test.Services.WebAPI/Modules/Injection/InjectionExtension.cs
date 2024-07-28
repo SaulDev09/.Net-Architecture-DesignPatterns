@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Saul.Test.Application.Interface;
+﻿using Saul.Test.Application.Interface;
 using Saul.Test.Application.Main;
 using Saul.Test.Domain.Core;
 using Saul.Test.Domain.Interface;
@@ -27,6 +25,10 @@ namespace Saul.Test.Services.WebAPI.Modules.Injection
             services.AddScoped<IUsersDomain, UsersDomain>();
             services.AddScoped<IUsersRepository, UsersRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddScoped<ICategoriesApplication, CategoriesApplication>();
+            services.AddScoped<ICategoriesDomain, CategoriesDomain>();
+            services.AddScoped<ICategoriesRepository, CategoriesRepository>();
 
             return services;
         }
