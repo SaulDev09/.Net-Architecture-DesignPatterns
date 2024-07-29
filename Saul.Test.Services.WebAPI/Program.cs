@@ -5,6 +5,7 @@ using Saul.Test.Services.WebAPI.Modules.Feature;
 using Saul.Test.Services.WebAPI.Modules.HealthCheck;
 using Saul.Test.Services.WebAPI.Modules.Injection;
 using Saul.Test.Services.WebAPI.Modules.Mapper;
+using Saul.Test.Services.WebAPI.Modules.Redis;
 using Saul.Test.Services.WebAPI.Modules.Swagger;
 using Saul.Test.Services.WebAPI.Modules.Validator;
 using Saul.Test.Services.WebAPI.Modules.Versioning;
@@ -27,6 +28,7 @@ builder.Services.AddSwagger();
 builder.Services.AddValidator();
 builder.Services.AddHealthCheck(builder.Configuration);
 builder.Services.AddWatchDogLog(builder.Configuration);
+builder.Services.AddRedisCache(builder.Configuration);
 
 var app = builder.Build();
 

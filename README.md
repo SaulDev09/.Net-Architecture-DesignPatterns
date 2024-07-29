@@ -104,28 +104,15 @@ ALTER TABLE WatchDog_WatchLog
 ALTER COLUMN host VARCHAR(300)
 
 
+Redis
+------------
 
-Table WatchDog_Logs:
-callingMethod from 100 to MAX
-
-Table WatchDog_WatchExceptionLog
-typeOf from 100 to 300
-path from 100 to MAX
-method from 30 to 300
-queryString from 100 to MAX
-encounteredAt from 100 to MAX
-
-Table WatchDog_WatchLog
-requestBody from 30 to MAX
-queryString from 30 to MAX
-path from 30 to MAX
-responseHeader from 30 to MAX
-method from 30 to MAX
-host from 30 to 300
-
-
-
-
-
+https://redis.io/docs/latest/operate/oss_and_stack/install/install-stack/docker/
+docker image pull redis/redis-stack:latest
+docker run -d --name redis-stack -e REDIS_ARGS="--requirepass 123456" -p 6379:6379 -p 8001:8001 redis/redis-stack:latest
+    33c9f5f666f8861e8e76e962ed4361448caf435b804affcb06c11819dbd35623
+docker ps
+http://localhost:8001 
+default / 123456
 
 
