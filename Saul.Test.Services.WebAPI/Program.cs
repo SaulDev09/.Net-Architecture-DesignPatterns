@@ -5,6 +5,7 @@ using Saul.Test.Services.WebAPI.Modules.Feature;
 using Saul.Test.Services.WebAPI.Modules.HealthCheck;
 using Saul.Test.Services.WebAPI.Modules.Injection;
 using Saul.Test.Services.WebAPI.Modules.Mapper;
+using Saul.Test.Services.WebAPI.Modules.RateLimiter;
 using Saul.Test.Services.WebAPI.Modules.Redis;
 using Saul.Test.Services.WebAPI.Modules.Swagger;
 using Saul.Test.Services.WebAPI.Modules.Validator;
@@ -29,6 +30,7 @@ builder.Services.AddValidator();
 builder.Services.AddHealthCheck(builder.Configuration);
 builder.Services.AddWatchDogLog(builder.Configuration);
 builder.Services.AddRedisCache(builder.Configuration);
+builder.Services.AddRateLimiting(builder.Configuration);
 
 var app = builder.Build();
 
@@ -54,6 +56,7 @@ app.UseCors(myPolicy);
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseRateLimiter();
 app.UseEndpoints(_ => { });
 app.MapControllers();
 app.MapHealthChecksUI();

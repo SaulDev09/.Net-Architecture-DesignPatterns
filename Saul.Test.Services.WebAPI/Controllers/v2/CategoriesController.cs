@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Saul.Test.Application.Interface;
 using Saul.Test.Transversal.Common;
 
 namespace Saul.Test.Services.WebAPI.Controllers.v2
 {
     [Authorize]
+    [EnableRateLimiting("fixedWindow")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("2.0")]
