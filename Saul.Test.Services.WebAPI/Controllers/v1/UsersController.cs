@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
-using Saul.Test.Application.Interface;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -10,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Saul.Test.Services.WebAPI.Helpers;
 using Saul.Test.Transversal.Common;
 using Microsoft.Extensions.Options;
+using Saul.Test.Application.Interface.UseCases;
 
 namespace Saul.Test.Services.WebAPI.Controllers.v1
 {

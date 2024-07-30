@@ -46,13 +46,10 @@
   <ItemGroup>
     <ProjectReference Include="..\Saul.Test.Application.DTO\Saul.Test.Application.DTO.csproj" />
     <ProjectReference Include="..\Saul.Test.Application.Interface\Saul.Test.Application.Interface.csproj" />
-    <ProjectReference Include="..\Saul.Test.Application.Main\Saul.Test.Application.Main.csproj" />
-    <ProjectReference Include="..\Saul.Test.Domain.Core\Saul.Test.Domain.Core.csproj" />
+    <ProjectReference Include="..\Saul.Test.Application.Main\Saul.Test.Application.UseCases.csproj" />
     <ProjectReference Include="..\Saul.Test.Domain.Entity\Saul.Test.Domain.Entity.csproj" />
-    <ProjectReference Include="..\Saul.Test.Domain.Interface\Saul.Test.Domain.Interface.csproj" />
-    <ProjectReference Include="..\Saul.Test.Infrastructure.Data\Saul.Test.Infrastructure.Data.csproj" />
-    <ProjectReference Include="..\Saul.Test.Infrastructure.Interface\Saul.Test.Infrastructure.Interface.csproj" />
-    <ProjectReference Include="..\Saul.Test.Infrastructure.Repository\Saul.Test.Infrastructure.Repository.csproj" />
+    <ProjectReference Include="..\Saul.Test.Persistence.Data\Saul.Test.Persistence.Data.csproj" />
+    <ProjectReference Include="..\Saul.Test.Persistence.Repository\Saul.Test.Persistence.Repository.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Log4net\Saul.Test.Transversal.Log4net.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Mapper\Saul.Test.Transversal.Mapper.csproj" />

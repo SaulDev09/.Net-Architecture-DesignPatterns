@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace Saul.Test.Infrastructure.Data
+namespace Saul.Test.Persistence.Data
 {
     public class DapperContext
     {

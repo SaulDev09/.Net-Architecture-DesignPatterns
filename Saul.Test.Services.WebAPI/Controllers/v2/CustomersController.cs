@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
-using Saul.Test.Application.Interface;
+using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Transversal.Common;
 using System.Threading.Tasks;
 

@@ -1,11 +1,11 @@
 ﻿using Dapper;
 using Saul.Test.Domain.Entity;
-using Saul.Test.Infrastructure.Data;
-using Saul.Test.Infrastructure.Interface;
+using Saul.Test.Persistence.Data;
+using Saul.Test.Application.Interface.Persistence;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Infrastructure.Repository
+namespace Saul.Test.Persistence.Repository
 {
     public class UsersRepository : IUsersRepository
     {

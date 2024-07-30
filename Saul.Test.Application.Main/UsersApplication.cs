@@ -1,24 +1,22 @@
 ﻿using AutoMapper;
 using Saul.Test.Application.DTO;
-using Saul.Test.Application.Interface;
-using Saul.Test.Domain.Interface;
+using Saul.Test.Application.Interface.Persistence;
+using Saul.Test.Application.Interface.UseCases;
+using Saul.Test.Application.Validator;
 using Saul.Test.Transversal.Common;
 using System;
-using System.Collections.Generic;
-using System.Text;
-using Saul.Test.Application.Validator;
 
-namespace Saul.Test.Application.Main
+namespace Saul.Test.Application.UseCases
 {
     public class UsersApplication : IUsersApplication
     {
-        private readonly IUsersDomain _usersDomain;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly UsersDtoValidator _validator;
 
-        public UsersApplication(IUsersDomain usersDomain, IMapper mapper, UsersDtoValidator validator)
+        public UsersApplication(IUnitOfWork unitOfWork, IMapper mapper, UsersDtoValidator validator)
         {
-            _usersDomain = usersDomain;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
             _validator = validator;
         }
@@ -37,7 +35,7 @@ namespace Saul.Test.Application.Main
 
             try
             {
-                var user = _usersDomain.Authenticate(userName, password);
+                var user = _unitOfWork.Users.Authenticate(userName, password);
                 response.Data = _mapper.Map<UsersDto>(user);
                 response.IsSuccess = true;
                 response.Message = "Successful Authentication";

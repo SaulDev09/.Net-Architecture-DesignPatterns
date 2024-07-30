@@ -1,24 +1,24 @@
 ﻿using AutoMapper;
 using Saul.Test.Application.DTO;
-using Saul.Test.Application.Interface;
+using Saul.Test.Application.Interface.Persistence;
+using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Domain.Entity;
-using Saul.Test.Domain.Interface;
 using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Application.Main
+namespace Saul.Test.Application.UseCases
 {
     public class CustomersApplication : ICustomersApplication
     {
-        private readonly ICustomersDomain _customersDomain;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILoggerManager _logger;
 
-        public CustomersApplication(ICustomersDomain customersDomain, IMapper mapper, ILoggerManager logger)
+        public CustomersApplication(IUnitOfWork unitOfWork, IMapper mapper, ILoggerManager logger)
         {
-            _customersDomain = customersDomain;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
         }
@@ -29,7 +29,7 @@ namespace Saul.Test.Application.Main
             try
             {
                 var customer = _mapper.Map<Customers>(customersDto);
-                response.Data = await _customersDomain.Insert(customer);
+                response.Data = await _unitOfWork.Customers.Insert(customer);
                 if (response.Data)
                 {
                     response.IsSuccess = true;
@@ -51,7 +51,7 @@ namespace Saul.Test.Application.Main
             try
             {
                 var customer = _mapper.Map<Customers>(customersDto);
-                response.Data = await _customersDomain.Update(customer);
+                response.Data = await _unitOfWork.Customers.Update(customer);
                 if (response.Data)
                 {
                     response.IsSuccess = true;
@@ -71,7 +71,7 @@ namespace Saul.Test.Application.Main
             var response = new Response<bool>();
             try
             {
-                response.Data = await _customersDomain.Delete(customerId);
+                response.Data = await _unitOfWork.Customers.Delete(customerId);
 
                 if (response.Data)
                 {
@@ -92,7 +92,7 @@ namespace Saul.Test.Application.Main
             var response = new Response<CustomersDto>();
             try
             {
-                var customer = await _customersDomain.Get(customerId);
+                var customer = await _unitOfWork.Customers.Get(customerId);
                 response.Data = _mapper.Map<CustomersDto>(customer);
                 if (response.Data != null)
                 {
@@ -113,7 +113,7 @@ namespace Saul.Test.Application.Main
             var response = new Response<IEnumerable<CustomersDto>>();
             try
             {
-                var customers = await _customersDomain.GetAll();
+                var customers = await _unitOfWork.Customers.GetAll();
                 response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
                 if (response.Data != null)
                 {
@@ -136,12 +136,12 @@ namespace Saul.Test.Application.Main
             var response = new ResponsePagination<IEnumerable<CustomersDto>>();
             try
             {
-                var customers = await _customersDomain.GetAllWithPagination(pageNumber, pageSize);
+                var customers = await _unitOfWork.Customers.GetAllWithPagination(pageNumber, pageSize);
                 response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
                 if (response.Data != null)
                 {
                     response.PageNumber = pageNumber;
-                    response.TotalCount = await _customersDomain.Count();
+                    response.TotalCount = await _unitOfWork.Customers.Count();
                     response.TotalPages = (int)Math.Ceiling(response.TotalCount / (double)pageSize);
 
                     response.IsSuccess = true;

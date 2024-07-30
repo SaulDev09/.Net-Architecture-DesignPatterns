@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Saul.Test.Infrastructure.Interface
+namespace Saul.Test.Application.Interface.Persistence
 {
     public interface IUnitOfWork : IDisposable
     {

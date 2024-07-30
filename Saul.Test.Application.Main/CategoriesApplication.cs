@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Caching.Distributed;
 using Saul.Test.Application.DTO;
-using Saul.Test.Application.Interface;
-using Saul.Test.Domain.Interface;
+using Saul.Test.Application.Interface.UseCases;
+using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;
@@ -10,18 +10,18 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Application.Main
+namespace Saul.Test.Application.UseCases
 {
     public class CategoriesApplication : ICategoriesApplication
     {
-        private readonly ICategoriesDomain _categoriesDomain;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly ILoggerManager _logger;
         private readonly IDistributedCache _distributedCache;
 
-        public CategoriesApplication(ICategoriesDomain categoriesDomain, IMapper mapper, ILoggerManager logger, IDistributedCache distributedCache)
+        public CategoriesApplication(IUnitOfWork unitOfWork, IMapper mapper, ILoggerManager logger, IDistributedCache distributedCache)
         {
-            _categoriesDomain = categoriesDomain;
+            _unitOfWork = unitOfWork;
             _mapper = mapper;
             _logger = logger;
             _distributedCache = distributedCache;
@@ -40,7 +40,7 @@ namespace Saul.Test.Application.Main
                 }
                 else
                 {
-                    var categories = await _categoriesDomain.GetAll();
+                    var categories = await _unitOfWork.Categories.GetAll();
                     response.Data = _mapper.Map<IEnumerable<CategoriesDto>>(categories);
                     if (response.Data != null)
                     {

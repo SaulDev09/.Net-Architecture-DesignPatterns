@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Saul.Test.Application.Interface;
+using Saul.Test.Application.Interface.UseCases;
 
 namespace Saul.Test.Application.Test
 {

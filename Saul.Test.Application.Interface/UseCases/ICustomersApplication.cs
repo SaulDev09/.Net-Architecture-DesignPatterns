@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Application.Interface
+namespace Saul.Test.Application.Interface.UseCases
 {
     public interface ICustomersApplication
     {
