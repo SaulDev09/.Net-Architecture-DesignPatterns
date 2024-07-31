@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{A9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Transversal", "Transversal", "{E79A6AC8-2C5D-4475-8E2F-E0F185E3F993}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saul.Test.Domain.Entity", "Saul.Test.Domain.Entity\Saul.Test.Domain.Entity.csproj", "{55731F61-3F05-4957-861D-45F7C86D144A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saul.Test.Domain", "Saul.Test.Domain.Entity\Saul.Test.Domain.csproj", "{55731F61-3F05-4957-861D-45F7C86D144A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Saul.Test.Application.DTO", "Saul.Test.Application.DTO\Saul.Test.Application.DTO.csproj", "{390F031D-3914-4F70-BE51-D6FA1CF8AA71}"
 EndProject

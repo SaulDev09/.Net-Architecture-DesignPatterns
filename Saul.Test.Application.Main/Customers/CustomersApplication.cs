@@ -2,7 +2,7 @@
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Application.Interface.UseCases;
-using Saul.Test.Domain.Entity;
+using Saul.Test.Domain.Entities;
 using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿namespace Saul.Test.Domain.Entity
+﻿namespace Saul.Test.Domain.Entities
 {
     public class Category
     {

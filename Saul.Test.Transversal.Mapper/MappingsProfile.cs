@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Saul.Test.Application.DTO;
-using Saul.Test.Domain.Entity;
+using Saul.Test.Domain.Entities;
 
 namespace Saul.Test.Transversal.Mapper
 {

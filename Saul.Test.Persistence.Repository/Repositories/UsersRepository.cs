@@ -1,6 +1,6 @@
 ﻿using Dapper;
 using Saul.Test.Application.Interface.Persistence;
-using Saul.Test.Domain.Entity;
+using Saul.Test.Domain.Entities;
 using Saul.Test.Persistence.Contexts;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,4 +1,4 @@
-﻿using Saul.Test.Domain.Entity;
+﻿using Saul.Test.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
