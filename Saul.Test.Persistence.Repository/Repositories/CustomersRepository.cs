@@ -1,12 +1,12 @@
 ﻿using Dapper;
-using Saul.Test.Domain.Entity;
-using Saul.Test.Persistence.Data;
 using Saul.Test.Application.Interface.Persistence;
+using Saul.Test.Domain.Entity;
+using Saul.Test.Persistence.Contexts;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Persistence.Repository
+namespace Saul.Test.Persistence.Repositories
 {
     public class CustomersRepository : ICustomersRepository
     {
@@ -17,7 +17,7 @@ namespace Saul.Test.Persistence.Repository
             _context = context;
         }
 
-        public async Task<bool> Insert(Customers customers)
+        public async Task<bool> Insert(Customer customers)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -40,7 +40,7 @@ namespace Saul.Test.Persistence.Repository
             }
         }
 
-        public async Task<bool> Update(Customers customers)
+        public async Task<bool> Update(Customer customers)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -76,7 +76,7 @@ namespace Saul.Test.Persistence.Repository
             }
         }
 
-        public async Task<Customers> Get(string customerId)
+        public async Task<Customer> Get(string customerId)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -84,22 +84,22 @@ namespace Saul.Test.Persistence.Repository
                 var parameters = new DynamicParameters();
                 parameters.Add("@CustomerID", customerId);
 
-                var result = await connection.QuerySingleAsync<Customers>(query, parameters, commandType: CommandType.StoredProcedure);
+                var result = await connection.QuerySingleAsync<Customer>(query, parameters, commandType: CommandType.StoredProcedure);
                 return result;
             }
         }
 
-        public async Task<IEnumerable<Customers>> GetAll()
+        public async Task<IEnumerable<Customer>> GetAll()
         {
             using (var connection = _context.CreateConnection())
             {
                 var query = "CustomersList";
-                var result = await connection.QueryAsync<Customers>(query, commandType: CommandType.StoredProcedure);
+                var result = await connection.QueryAsync<Customer>(query, commandType: CommandType.StoredProcedure);
                 return result;
             }
         }
 
-        public async Task<IEnumerable<Customers>> GetAllWithPagination(int pageNumber, int pageSize)
+        public async Task<IEnumerable<Customer>> GetAllWithPagination(int pageNumber, int pageSize)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -107,7 +107,7 @@ namespace Saul.Test.Persistence.Repository
                 var parameters = new DynamicParameters();
                 parameters.Add("@PageNumber", pageNumber);
                 parameters.Add("@PageSize", pageSize);
-                var result = await connection.QueryAsync<Customers>(query, parameters, commandType: CommandType.StoredProcedure);
+                var result = await connection.QueryAsync<Customer>(query, parameters, commandType: CommandType.StoredProcedure);
                 return result;
             }
         }

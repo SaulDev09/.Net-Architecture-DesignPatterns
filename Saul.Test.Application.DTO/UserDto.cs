@@ -1,6 +1,6 @@
-﻿namespace Saul.Test.Domain.Entity
+﻿namespace Saul.Test.Application.DTO
 {
-    public class Users
+    public class UserDto
     {
         public int UserId { get; set; }
         public string FirstName { get; set; }

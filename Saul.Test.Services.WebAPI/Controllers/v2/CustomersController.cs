@@ -60,7 +60,7 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
         }
 
         [HttpPost("Insert")]
-        public async Task<IActionResult> Insert([FromBody] CustomersDto customersDto)
+        public async Task<IActionResult> Insert([FromBody] CustomerDto customersDto)
         {
             if (customersDto == null)
                 return BadRequest();
@@ -73,7 +73,7 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
         }
 
         [HttpPut("Update/{customerId}")]
-        public async Task<IActionResult> Update(string customerId, [FromBody] CustomersDto customersDto)
+        public async Task<IActionResult> Update(string customerId, [FromBody] CustomerDto customersDto)
         {
             var customerDto = await _customersApplication.Get(customerId);
             if (customerDto.Data == null)

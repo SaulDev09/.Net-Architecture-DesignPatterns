@@ -47,7 +47,7 @@ namespace Saul.Test.Services.WebAPI.Controllers.v1
         }
 
         [HttpPost("Insert")]
-        public async Task<IActionResult> Insert([FromBody] CustomersDto customersDto)
+        public async Task<IActionResult> Insert([FromBody] CustomerDto customersDto)
         {
             if (customersDto == null)
                 return BadRequest();
@@ -60,7 +60,7 @@ namespace Saul.Test.Services.WebAPI.Controllers.v1
         }
 
         [HttpPut("Update")]
-        public async Task<IActionResult> Update([FromBody] CustomersDto customersDto)
+        public async Task<IActionResult> Update([FromBody] CustomerDto customersDto)
         {
             if (customersDto == null)
                 return BadRequest();

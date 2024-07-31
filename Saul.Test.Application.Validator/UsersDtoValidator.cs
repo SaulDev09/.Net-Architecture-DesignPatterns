@@ -3,7 +3,7 @@ using Saul.Test.Application.DTO;
 
 namespace Saul.Test.Application.Validator
 {
-    public class UsersDtoValidator : AbstractValidator<UsersDto>
+    public class UsersDtoValidator : AbstractValidator<UserDto>
     {
         public UsersDtoValidator()
         {

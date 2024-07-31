@@ -1,5 +1,7 @@
 ﻿using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Saul.Test.Persistence;
+using Saul.Test.Application.UseCases;
 using Saul.Test.Services.WebAPI.Modules.Authentication;
 using Saul.Test.Services.WebAPI.Modules.Feature;
 using Saul.Test.Services.WebAPI.Modules.HealthCheck;
@@ -22,6 +24,8 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddMapper();
 builder.Services.AddFeature(builder.Configuration, myPolicy);
+builder.Services.AddPersistenceServices();
+builder.Services.AddApplicationServices();
 builder.Services.AddInjection(builder.Configuration);
 builder.Services.AddAuthentication(builder.Configuration);
 builder.Services.AddVersioning();

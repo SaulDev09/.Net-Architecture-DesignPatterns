@@ -2,8 +2,8 @@
 
 namespace Saul.Test.Application.Interface.Persistence
 {
-    public interface IUsersRepository : IGenericRepository<Users>
+    public interface IUsersRepository : IGenericRepository<User>
     {
-        Users Authenticate(string userName, string password);
+        User Authenticate(string userName, string password);
     }
 }

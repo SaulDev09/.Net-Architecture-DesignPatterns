@@ -9,11 +9,11 @@ namespace Saul.Test.Application.Interface.UseCases
 {
     public interface ICustomersApplication
     {
-        Task<Response<bool>> Insert(CustomersDto customersDto);
-        Task<Response<bool>> Update(CustomersDto customersDto);
+        Task<Response<bool>> Insert(CustomerDto customersDto);
+        Task<Response<bool>> Update(CustomerDto customersDto);
         Task<Response<bool>> Delete(string customerId);
-        Task<Response<CustomersDto>> Get(string customerId);
-        Task<Response<IEnumerable<CustomersDto>>> GetAll();
-        Task<ResponsePagination<IEnumerable<CustomersDto>>> GetAllWithPagination(int pageNumber, int pageSize);
+        Task<Response<CustomerDto>> Get(string customerId);
+        Task<Response<IEnumerable<CustomerDto>>> GetAll();
+        Task<ResponsePagination<IEnumerable<CustomerDto>>> GetAllWithPagination(int pageNumber, int pageSize);
     }
 }

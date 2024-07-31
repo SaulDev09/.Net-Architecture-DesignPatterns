@@ -6,7 +6,7 @@ using Saul.Test.Application.Validator;
 using Saul.Test.Transversal.Common;
 using System;
 
-namespace Saul.Test.Application.UseCases
+namespace Saul.Test.Application.UseCases.Users
 {
     public class UsersApplication : IUsersApplication
     {
@@ -21,10 +21,10 @@ namespace Saul.Test.Application.UseCases
             _validator = validator;
         }
 
-        public Response<UsersDto> Authenticate(string userName, string password)
+        public Response<UserDto> Authenticate(string userName, string password)
         {
-            var response = new Response<UsersDto>();
-            var validation = _validator.Validate(new UsersDto() { UserName = userName, Password = password });
+            var response = new Response<UserDto>();
+            var validation = _validator.Validate(new UserDto() { UserName = userName, Password = password });
 
             if (!validation.IsValid)
             {
@@ -36,13 +36,13 @@ namespace Saul.Test.Application.UseCases
             try
             {
                 var user = _unitOfWork.Users.Authenticate(userName, password);
-                response.Data = _mapper.Map<UsersDto>(user);
+                response.Data = _mapper.Map<UserDto>(user);
                 response.IsSuccess = true;
                 response.Message = "Successful Authentication";
             }
-            catch(InvalidOperationException)
+            catch (InvalidOperationException)
             {
-                response.IsSuccess=false;
+                response.IsSuccess = false;
                 response.Message = "User doesn't exist";
             }
             catch (Exception ex)

@@ -1,6 +1,6 @@
 ﻿using Saul.Test.Application.Interface.Persistence;
 
-namespace Saul.Test.Persistence.Repository
+namespace Saul.Test.Persistence.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {

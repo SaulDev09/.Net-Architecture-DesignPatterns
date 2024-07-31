@@ -1,11 +1,11 @@
 ﻿using Dapper;
-using Saul.Test.Domain.Entity;
-using Saul.Test.Persistence.Data;
 using Saul.Test.Application.Interface.Persistence;
+using Saul.Test.Domain.Entity;
+using Saul.Test.Persistence.Contexts;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Persistence.Repository
+namespace Saul.Test.Persistence.Repositories
 {
     public class UsersRepository : IUsersRepository
     {
@@ -16,7 +16,7 @@ namespace Saul.Test.Persistence.Repository
             _context = context;
         }
 
-        public Users Authenticate(string userName, string password)
+        public User Authenticate(string userName, string password)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -25,7 +25,7 @@ namespace Saul.Test.Persistence.Repository
                 parameters.Add("username", userName);
                 parameters.Add("password", password);
 
-                var user = connection.QuerySingle<Users>(query, param: parameters, commandType: System.Data.CommandType.StoredProcedure);
+                var user = connection.QuerySingle<User>(query, param: parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return user;
             }
 
@@ -36,27 +36,27 @@ namespace Saul.Test.Persistence.Repository
             throw new System.NotImplementedException();
         }
 
-        public Task<Users> Get(string id)
+        public Task<User> Get(string id)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<Users>> GetAll()
+        public Task<IEnumerable<User>> GetAll()
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> Insert(Users entity)
+        public Task<bool> Insert(User entity)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<bool> Update(Users entity)
+        public Task<bool> Update(User entity)
         {
             throw new System.NotImplementedException();
         }
 
-        public Task<IEnumerable<Users>> GetAllWithPagination(int pageNumber, int pageSize)
+        public Task<IEnumerable<User>> GetAllWithPagination(int pageNumber, int pageSize)
         {
             throw new System.NotImplementedException();
         }

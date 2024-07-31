@@ -6,6 +6,6 @@ namespace Saul.Test.Application.Interface.Persistence
 {
     public interface ICategoriesRepository
     {
-        Task<IEnumerable<Categories>> GetAll();
+        Task<IEnumerable<Category>> GetAll();
     }
 }

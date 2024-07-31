@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Application.UseCases
+namespace Saul.Test.Application.UseCases.Customers
 {
     public class CustomersApplication : ICustomersApplication
     {
@@ -23,12 +23,12 @@ namespace Saul.Test.Application.UseCases
             _logger = logger;
         }
 
-        public async Task<Response<bool>> Insert(CustomersDto customersDto)
+        public async Task<Response<bool>> Insert(CustomerDto customersDto)
         {
             var response = new Response<bool>();
             try
             {
-                var customer = _mapper.Map<Customers>(customersDto);
+                var customer = _mapper.Map<Customer>(customersDto);
                 response.Data = await _unitOfWork.Customers.Insert(customer);
                 if (response.Data)
                 {
@@ -45,12 +45,12 @@ namespace Saul.Test.Application.UseCases
             return response;
         }
 
-        public async Task<Response<bool>> Update(CustomersDto customersDto)
+        public async Task<Response<bool>> Update(CustomerDto customersDto)
         {
             var response = new Response<bool>();
             try
             {
-                var customer = _mapper.Map<Customers>(customersDto);
+                var customer = _mapper.Map<Customer>(customersDto);
                 response.Data = await _unitOfWork.Customers.Update(customer);
                 if (response.Data)
                 {
@@ -87,13 +87,13 @@ namespace Saul.Test.Application.UseCases
             return response;
         }
 
-        public async Task<Response<CustomersDto>> Get(string customerId)
+        public async Task<Response<CustomerDto>> Get(string customerId)
         {
-            var response = new Response<CustomersDto>();
+            var response = new Response<CustomerDto>();
             try
             {
                 var customer = await _unitOfWork.Customers.Get(customerId);
-                response.Data = _mapper.Map<CustomersDto>(customer);
+                response.Data = _mapper.Map<CustomerDto>(customer);
                 if (response.Data != null)
                 {
                     response.IsSuccess = true;
@@ -108,13 +108,13 @@ namespace Saul.Test.Application.UseCases
             return response;
         }
 
-        public async Task<Response<IEnumerable<CustomersDto>>> GetAll()
+        public async Task<Response<IEnumerable<CustomerDto>>> GetAll()
         {
-            var response = new Response<IEnumerable<CustomersDto>>();
+            var response = new Response<IEnumerable<CustomerDto>>();
             try
             {
                 var customers = await _unitOfWork.Customers.GetAll();
-                response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
+                response.Data = _mapper.Map<IEnumerable<CustomerDto>>(customers);
                 if (response.Data != null)
                 {
                     response.IsSuccess = true;
@@ -130,14 +130,14 @@ namespace Saul.Test.Application.UseCases
             return response;
         }
 
-        public async Task<ResponsePagination<IEnumerable<CustomersDto>>> GetAllWithPagination(int pageNumber, int pageSize)
+        public async Task<ResponsePagination<IEnumerable<CustomerDto>>> GetAllWithPagination(int pageNumber, int pageSize)
         {
 
-            var response = new ResponsePagination<IEnumerable<CustomersDto>>();
+            var response = new ResponsePagination<IEnumerable<CustomerDto>>();
             try
             {
                 var customers = await _unitOfWork.Customers.GetAllWithPagination(pageNumber, pageSize);
-                response.Data = _mapper.Map<IEnumerable<CustomersDto>>(customers);
+                response.Data = _mapper.Map<IEnumerable<CustomerDto>>(customers);
                 if (response.Data != null)
                 {
                     response.PageNumber = pageNumber;

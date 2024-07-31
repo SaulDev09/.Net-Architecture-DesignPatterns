@@ -5,6 +5,6 @@ namespace Saul.Test.Application.Interface.UseCases
 {
     public interface IUsersApplication
     {
-        Response<UsersDto> Authenticate(string userName, string password);
+        Response<UserDto> Authenticate(string userName, string password);
     }
 }

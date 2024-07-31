@@ -10,7 +10,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Saul.Test.Application.UseCases
+namespace Saul.Test.Application.UseCases.Categories
 {
     public class CategoriesApplication : ICategoriesApplication
     {
@@ -27,21 +27,21 @@ namespace Saul.Test.Application.UseCases
             _distributedCache = distributedCache;
         }
 
-        public async Task<Response<IEnumerable<CategoriesDto>>> GetAll()
+        public async Task<Response<IEnumerable<CategoryDto>>> GetAll()
         {
-            var response = new Response<IEnumerable<CategoriesDto>>();
+            var response = new Response<IEnumerable<CategoryDto>>();
             var cacheKey = "categoriesList";
             try
             {
                 var redisCategories = await _distributedCache.GetAsync(cacheKey);
                 if (redisCategories != null)
                 {
-                    response.Data = JsonSerializer.Deserialize<IEnumerable<CategoriesDto>>(redisCategories);
+                    response.Data = JsonSerializer.Deserialize<IEnumerable<CategoryDto>>(redisCategories);
                 }
                 else
                 {
                     var categories = await _unitOfWork.Categories.GetAll();
-                    response.Data = _mapper.Map<IEnumerable<CategoriesDto>>(categories);
+                    response.Data = _mapper.Map<IEnumerable<CategoryDto>>(categories);
                     if (response.Data != null)
                     {
                         var serializedCategories = Encoding.UTF8.GetBytes(JsonSerializer.Serialize(response.Data));
