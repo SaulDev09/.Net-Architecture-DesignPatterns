@@ -123,3 +123,17 @@ dotnet tool update -g upgrade-assistant
 cd "application folder"
 ls
 upgrade-assistant upgrade .\Saul.Test.sln
+
+
+EF
+------------
+
+dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+dotnet ef
+
+cd PROJECT_FOLDER_sln
+dotnet ef migrations add CreateInitialScheme --project Saul.Test.Persistence --startup-project Saul.Test.Services.WebAPI --output-dir Migrations --context ApplicationDbContext
+
+dotnet ef database update --project Saul.Test.Persistence --startup-project Saul.Test.Services.WebAPI --context ApplicationDbContext
+

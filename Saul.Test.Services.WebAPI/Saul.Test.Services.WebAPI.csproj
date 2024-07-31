@@ -21,11 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="6.0.4" />
-    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="6.0.2" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="6.0.4" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="6.0.4" />
-    <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="6.0.4" />
+    <PackageReference Include="AspNetCore.HealthChecks.Redis" Version="7.0.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="7.0.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI" Version="7.0.2" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="7.1.0" />
+    <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="7.0.0" />
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="log4net" Version="2.0.17" />
@@ -33,6 +33,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.32" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.1.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.36.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="7.0.12" />
@@ -48,7 +52,7 @@
     <ProjectReference Include="..\Saul.Test.Application.Interface\Saul.Test.Application.Interface.csproj" />
     <ProjectReference Include="..\Saul.Test.Application.Main\Saul.Test.Application.UseCases.csproj" />
     <ProjectReference Include="..\Saul.Test.Domain.Entity\Saul.Test.Domain.csproj" />
-    <ProjectReference Include="..\Saul.Test.Persistence.Repository\Saul.Test.Persistence.csproj" />
+    <ProjectReference Include="..\Saul.Test.Persistence\Saul.Test.Persistence.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Log4net\Saul.Test.Transversal.Log4net.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Mapper\Saul.Test.Transversal.Mapper.csproj" />
