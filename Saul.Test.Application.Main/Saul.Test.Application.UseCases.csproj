@@ -1,18 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.0" />
-    <PackageReference Include="System.Text.Json" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.20" />
+    <PackageReference Include="System.Text.Json" Version="7.0.4" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Saul.Test.Application.Interface\Saul.Test.Application.Interface.csproj" />
     <ProjectReference Include="..\Saul.Test.Application.Validator\Saul.Test.Application.Validator.csproj" />
   </ItemGroup>
-
 </Project>

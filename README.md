@@ -115,4 +115,11 @@ docker ps
 http://localhost:8001 
 default / 123456
 
+Upgrade Net Standard to .Net 7
+------------
 
+dotnet tool install -g upgrade-assistant
+dotnet tool update -g upgrade-assistant
+cd "application folder"
+ls
+upgrade-assistant upgrade .\Saul.Test.sln

@@ -1,13 +1,10 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Saul.Test.Application.DTO\Saul.Test.Application.DTO.csproj" />
     <ProjectReference Include="..\Saul.Test.Domain.Entity\Saul.Test.Domain.Entity.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
   </ItemGroup>
-
 </Project>
