@@ -55,7 +55,6 @@
     <ProjectReference Include="..\Saul.Test.Persistence\Saul.Test.Persistence.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Common\Saul.Test.Transversal.Common.csproj" />
     <ProjectReference Include="..\Saul.Test.Transversal.Log4net\Saul.Test.Transversal.Log4net.csproj" />
-    <ProjectReference Include="..\Saul.Test.Transversal.Mapper\Saul.Test.Transversal.Mapper.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Text.Json.Serialization;
 
 namespace Saul.Test.Services.WebAPI.Modules.Feature
 {
@@ -14,6 +15,12 @@ namespace Saul.Test.Services.WebAPI.Modules.Feature
                                                                             ));
 
             services.AddMvc();
+            services.AddControllers().AddJsonOptions(opts =>
+            {
+                var enumConverter = new JsonStringEnumConverter();
+                opts.JsonSerializerOptions.Converters.Add(enumConverter);
+            });
+
             return services;
         }
 
