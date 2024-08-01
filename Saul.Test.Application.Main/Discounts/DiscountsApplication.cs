@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Saul.Test.Application.DTO;
+using Saul.Test.Application.Interface.Infrastructure;
 using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Application.Validator;
 using Saul.Test.Domain.Entities;
+using Saul.Test.Domain.Events;
 using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;
@@ -17,12 +19,14 @@ namespace Saul.Test.Application.UseCases.Discounts
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly DiscountDtoValidator _discountDtoValidator;
+        private readonly IEventBus _eventBus;
 
-        public DiscountsApplication(IUnitOfWork unitOfWork, IMapper mapper, DiscountDtoValidator discountDtoValidator)
+        public DiscountsApplication(IUnitOfWork unitOfWork, IMapper mapper, DiscountDtoValidator discountDtoValidator, IEventBus eventBus)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _discountDtoValidator = discountDtoValidator;
+            _eventBus = eventBus;
         }
 
         public async Task<Response<bool>> Insert(DiscountDto discountDto, CancellationToken cancellationToken = default)
@@ -45,6 +49,10 @@ namespace Saul.Test.Application.UseCases.Discounts
                 {
                     response.IsSuccess = true;
                     response.Message = "Data saved";
+
+                    // Publishing Event
+                    var discountCreatedEvent = _mapper.Map<DiscountCreatedEvent>(discount);
+                    _eventBus.Publish(discountCreatedEvent);                    
                 }
             }
             catch (Exception ex)
