@@ -145,3 +145,11 @@ http://localhost:15672
 guest / guest
 
 
+Redoc
+------------
+
+.Net 7.0:
+Saul.Test.Services.WebAPI:
+    Swashbuckle.AspNetCore.Annotations 6.5.0
+    Swashbuckle.AspNetCore.ReDoc 6.5.0
+localhost:XXXX/api-docs/index.html

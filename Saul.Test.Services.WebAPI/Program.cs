@@ -38,16 +38,23 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
-    app.UseSwagger();
+    var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
     app.UseSwagger();
     app.UseSwaggerUI(c =>
     {
-        var provider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
         foreach (var description in provider.ApiVersionDescriptions)
         {
             c.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
         }
+    });
 
+    app.UseReDoc(options =>
+    {
+        foreach (var description in provider.ApiVersionDescriptions)
+        {
+            options.DocumentTitle = "Saul Test API";
+            options.SpecUrl = $"/swagger/{description.GroupName}/swagger.json";
+        }
     });
 }
 
