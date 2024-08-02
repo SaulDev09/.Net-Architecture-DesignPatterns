@@ -9,6 +9,7 @@ using Saul.Test.Domain.Events;
 using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,13 +21,15 @@ namespace Saul.Test.Application.UseCases.Discounts
         private readonly IMapper _mapper;
         private readonly DiscountDtoValidator _discountDtoValidator;
         private readonly IEventBus _eventBus;
+        private readonly INotification _notification;
 
-        public DiscountsApplication(IUnitOfWork unitOfWork, IMapper mapper, DiscountDtoValidator discountDtoValidator, IEventBus eventBus)
+        public DiscountsApplication(IUnitOfWork unitOfWork, IMapper mapper, DiscountDtoValidator discountDtoValidator, IEventBus eventBus, INotification notification)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _discountDtoValidator = discountDtoValidator;
             _eventBus = eventBus;
+            _notification = notification;
         }
 
         public async Task<Response<bool>> Insert(DiscountDto discountDto, CancellationToken cancellationToken = default)
@@ -53,11 +56,15 @@ namespace Saul.Test.Application.UseCases.Discounts
                     // Publishing Event
                     var discountCreatedEvent = _mapper.Map<DiscountCreatedEvent>(discount);
                     _eventBus.Publish(discountCreatedEvent);
+
+                    // Send Email
+                    await _notification.SendMail(response.Message, JsonSerializer.Serialize(response), cancellationToken);
                 }
             }
             catch (Exception ex)
             {
                 response.Message = ex.Message;
+                await _notification.SendMail(response.Message, JsonSerializer.Serialize(response.Message), cancellationToken);
             }
             return response;
         }
