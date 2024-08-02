@@ -85,6 +85,17 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
             return BadRequest(response);
         }
 
+        [HttpGet("GetAllWithPagination")]
+        public async Task<IActionResult> GetAllWithPagination([FromQuery] int pageNumber, int pageSize)
+        {
+            var response = await _discountsApplication.GetAllWithPagination(pageNumber, pageSize);
+            if (response.IsSuccess)
+            {
+                _logger.LogInfo("Test LogInfo GetAllWithPagination - request processed.");
+                return Ok(response);
+            }
 
+            return BadRequest(response.Message);
+        }
     }
 }

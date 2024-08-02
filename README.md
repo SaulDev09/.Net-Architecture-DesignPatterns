@@ -153,3 +153,13 @@ Saul.Test.Services.WebAPI:
     Swashbuckle.AspNetCore.Annotations 6.5.0
     Swashbuckle.AspNetCore.ReDoc 6.5.0
 localhost:XXXX/api-docs/index.html
+
+
+Bogus
+------------
+
+.Net 7.0:
+Saul.Test.Persistence
+    Bogus 34.0.2
+
+Persistence: Mock -> Repository -> Application (2)-> Controller

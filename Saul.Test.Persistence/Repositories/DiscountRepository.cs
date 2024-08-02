@@ -2,8 +2,10 @@
 using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Domain.Entities;
 using Saul.Test.Persistence.Contexts;
+using Saul.Test.Persistence.Mocks;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -79,13 +81,15 @@ namespace Saul.Test.Persistence.Repositories
         {
             throw new NotImplementedException();
         }
-        public Task<IEnumerable<Discount>> GetAllWithPagination(int pageNumber, int pageSize)
+        public async Task<IEnumerable<Discount>> GetAllWithPagination(int pageNumber, int pageSize)
         {
-            throw new NotImplementedException();
+            var faker = new DiscountGetAllWithPaginationBogusConfig();
+            var result = await Task.Run(() => faker.Generate(1000));
+            return result.Skip((pageNumber - 1) * pageSize).Take(pageSize);
         }
-        public Task<int> Count()
+        public async Task<int> Count()
         {
-            throw new NotImplementedException();
+            return await Task.Run(() => 1000);
         }
         public Task<IEnumerable<Discount>> GetAll()
         {

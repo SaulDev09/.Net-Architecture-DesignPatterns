@@ -52,7 +52,7 @@ namespace Saul.Test.Application.UseCases.Discounts
 
                     // Publishing Event
                     var discountCreatedEvent = _mapper.Map<DiscountCreatedEvent>(discount);
-                    _eventBus.Publish(discountCreatedEvent);                    
+                    _eventBus.Publish(discountCreatedEvent);
                 }
             }
             catch (Exception ex)
@@ -159,5 +159,29 @@ namespace Saul.Test.Application.UseCases.Discounts
             return response;
         }
 
+        public async Task<ResponsePagination<IEnumerable<DiscountDto>>> GetAllWithPagination(int pageNumber, int pageSize)
+        {
+            var response = new ResponsePagination<IEnumerable<DiscountDto>>();
+            try
+            {
+                var discounts = await _unitOfWork.Discounts.GetAllWithPagination(pageNumber, pageSize);
+                response.Data = _mapper.Map<IEnumerable<DiscountDto>>(discounts);
+                if (response.Data != null)
+                {
+                    response.PageNumber = pageNumber;
+                    response.TotalCount = await _unitOfWork.Discounts.Count();
+                    response.TotalPages = (int)Math.Ceiling(response.TotalCount / (double)pageSize);
+
+                    response.IsSuccess = true;
+                    response.Message = "Successful query";
+                }
+            }
+            catch (Exception ex)
+            {
+                response.IsSuccess = false;
+                response.Message = ex.Message;
+            }
+            return response;
+        }
     }
 }
