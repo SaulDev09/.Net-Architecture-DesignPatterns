@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
 
-namespace Saul.Test.Infrastructure.Notification
+namespace Saul.Test.Infrastructure.Notification.Options
 {
     public class SendgridOptionsSetup : IConfigureOptions<SendgridOptions>
     {

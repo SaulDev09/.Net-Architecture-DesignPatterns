@@ -1,4 +1,4 @@
-﻿namespace Saul.Test.Infrastructure.Notification
+﻿namespace Saul.Test.Infrastructure.Notification.Options
 {
     public class SendgridOptions
     {
