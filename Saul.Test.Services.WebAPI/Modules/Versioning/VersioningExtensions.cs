@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Versioning;
+﻿using Asp.Versioning;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Saul.Test.Services.WebAPI.Modules.Versioning
@@ -9,15 +9,13 @@ namespace Saul.Test.Services.WebAPI.Modules.Versioning
         {
             services.AddApiVersioning(o =>
             {
-                o.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
+                o.DefaultApiVersion = new ApiVersion(1, 0);
                 o.AssumeDefaultVersionWhenUnspecified = true;
                 o.ReportApiVersions = true;
                 //o.ApiVersionReader = new QueryStringApiVersionReader("api-version");
                 //o.ApiVersionReader = new HeaderApiVersionReader("api-version");
                 o.ApiVersionReader = new UrlSegmentApiVersionReader();
-            });
-
-            services.AddVersionedApiExplorer(o =>
+            }).AddApiExplorer(o =>
             {
                 o.GroupNameFormat = "'v'VVV";
                 o.SubstituteApiVersionInUrl = true;

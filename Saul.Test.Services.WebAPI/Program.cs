@@ -1,4 +1,5 @@
-﻿using HealthChecks.UI.Client;
+﻿using Asp.Versioning.ApiExplorer;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Saul.Test.Application.UseCases;
 using Saul.Test.Infrastructure;

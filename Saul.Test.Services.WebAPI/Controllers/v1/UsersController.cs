@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
 using System;
 using System.IdentityModel.Tokens.Jwt;
