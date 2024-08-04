@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using System.Text.Json.Serialization;
+﻿using System.Text.Json.Serialization;
 
 namespace Saul.Test.Services.WebAPI.Modules.Feature
 {

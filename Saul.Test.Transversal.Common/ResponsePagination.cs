@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Saul.Test.Transversal.Common
+﻿namespace Saul.Test.Transversal.Common
 {
     public class ResponsePagination<T> : ResponseGeneric<T>
     {

@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Caching.Distributed;
 using Saul.Test.Application.DTO;
-using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Application.Interface.Persistence;
+using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Transversal.Common;
 using System;
 using System.Collections.Generic;

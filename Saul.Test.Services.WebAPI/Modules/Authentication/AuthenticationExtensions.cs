@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Saul.Test.Services.WebAPI.Helpers;
-using System;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Saul.Test.Services.WebAPI.Modules.Authentication
 {

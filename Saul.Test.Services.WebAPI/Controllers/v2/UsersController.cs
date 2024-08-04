@@ -1,16 +1,15 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Saul.Test.Application.DTO;
-using System;
+using Saul.Test.Application.Interface.UseCases;
+using Saul.Test.Services.WebAPI.Helpers;
+using Saul.Test.Transversal.Common;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.AspNetCore.Authorization;
-using Saul.Test.Services.WebAPI.Helpers;
-using Saul.Test.Transversal.Common;
-using Microsoft.Extensions.Options;
-using Saul.Test.Application.Interface.UseCases;
 
 namespace Saul.Test.Services.WebAPI.Controllers.v2
 {

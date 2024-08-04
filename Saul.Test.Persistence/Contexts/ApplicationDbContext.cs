@@ -2,8 +2,8 @@
 using Saul.Test.Domain.Entities;
 using Saul.Test.Persistence.Interceptor;
 using System.Reflection;
-using System.Threading.Tasks;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Saul.Test.Persistence.Contexts
 {

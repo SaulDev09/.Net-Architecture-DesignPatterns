@@ -1,7 +1,4 @@
-﻿using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Saul.Test.Services.WebAPI.Modules.HealthCheck
+﻿namespace Saul.Test.Services.WebAPI.Modules.HealthCheck
 {
     public static class HealthCheckExtensions
     {
