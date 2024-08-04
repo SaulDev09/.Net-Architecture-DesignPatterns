@@ -7,6 +7,7 @@ using Saul.Test.Services.WebAPI.Modules.Authentication;
 using Saul.Test.Services.WebAPI.Modules.Feature;
 using Saul.Test.Services.WebAPI.Modules.HealthCheck;
 using Saul.Test.Services.WebAPI.Modules.Injection;
+using Saul.Test.Services.WebAPI.Modules.Middleware;
 using Saul.Test.Services.WebAPI.Modules.RateLimiter;
 using Saul.Test.Services.WebAPI.Modules.Redis;
 using Saul.Test.Services.WebAPI.Modules.Swagger;
@@ -68,6 +69,8 @@ app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks
     Predicate = _ => true,
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
 });
+
+app.AddMiddleware();
 
 app.Run();
 

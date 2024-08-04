@@ -163,3 +163,12 @@ Saul.Test.Persistence
     Bogus 34.0.2
 
 Persistence: Mock -> Repository -> Application (2)-> Controller
+
+Middlewares
+------------
+
+Request Delegates: Simple "Use case"
+Convention based
+Factory based -> Popular
+
+
