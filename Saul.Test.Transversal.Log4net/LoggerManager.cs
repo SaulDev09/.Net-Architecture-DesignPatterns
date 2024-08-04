@@ -1,7 +1,6 @@
 ﻿using log4net;
 using Saul.Test.Transversal.Common;
 using System.Reflection;
-using WatchDog;
 
 
 namespace Saul.Test.Transversal.Log4net
@@ -20,25 +19,21 @@ namespace Saul.Test.Transversal.Log4net
         public void LogInfo(string message)
         {
             log.Info(message);
-            WatchLogger.Log(message);
         }
 
         public void LogWarn(string message)
         {
             log.Warn(message);
-            WatchLogger.Log(message);
         }
 
         public void LogDebug(string message)
         {
             log.Debug(message);
-            WatchLogger.Log(message);
         }
 
         public void LogError(string message)
         {
             log.Error(message);
-            WatchLogger.Log(message);
         }
     }
 }

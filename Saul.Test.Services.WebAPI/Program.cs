@@ -11,8 +11,6 @@ using Saul.Test.Services.WebAPI.Modules.RateLimiter;
 using Saul.Test.Services.WebAPI.Modules.Redis;
 using Saul.Test.Services.WebAPI.Modules.Swagger;
 using Saul.Test.Services.WebAPI.Modules.Versioning;
-using Saul.Test.Services.WebAPI.Modules.Watch;
-using WatchDog;
 
 string myPolicy = "policySaulTest";
 
@@ -29,10 +27,8 @@ builder.Services.AddAuthentication(builder.Configuration);
 builder.Services.AddVersioning();
 builder.Services.AddSwagger();
 builder.Services.AddHealthCheck(builder.Configuration);
-builder.Services.AddWatchDogLog(builder.Configuration);
 builder.Services.AddRedisCache(builder.Configuration);
 builder.Services.AddRateLimiting(builder.Configuration);
-builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -59,27 +55,18 @@ if (app.Environment.IsDevelopment())
     });
 }
 
-app.UseSession();
-app.UseWatchDogExceptionLogger();
+
 app.UseHttpsRedirection();
 app.UseCors(myPolicy);
-app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseRateLimiter();
-app.UseEndpoints(_ => { });
 app.MapControllers();
 app.MapHealthChecksUI();
 app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions
 {
     Predicate = _ => true,
     ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-});
-
-app.UseWatchDog(conf =>
-{
-    conf.WatchPageUsername = builder.Configuration["WatchDog:WatchPageUsername"];
-    conf.WatchPagePassword = builder.Configuration["WatchDog:WatchPagePassword"];
 });
 
 app.Run();
