@@ -33,6 +33,7 @@ builder.Services.AddHealthCheck(builder.Configuration);
 builder.Services.AddWatchDogLog(builder.Configuration);
 builder.Services.AddRedisCache(builder.Configuration);
 builder.Services.AddRateLimiting(builder.Configuration);
+builder.Services.AddSession();
 
 var app = builder.Build();
 
@@ -59,6 +60,7 @@ if (app.Environment.IsDevelopment())
     });
 }
 
+app.UseSession();
 app.UseWatchDogExceptionLogger();
 app.UseHttpsRedirection();
 app.UseCors(myPolicy);
