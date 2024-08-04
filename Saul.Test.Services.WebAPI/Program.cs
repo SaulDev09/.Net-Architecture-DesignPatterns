@@ -30,9 +30,11 @@ builder.Services.AddSwagger();
 builder.Services.AddHealthCheck(builder.Configuration);
 builder.Services.AddRedisCache(builder.Configuration);
 builder.Services.AddRateLimiting(builder.Configuration);
+builder.WebHost.UseWebRoot("wwwroot");
 
 var app = builder.Build();
 
+app.UseStaticFiles();
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();

@@ -168,7 +168,26 @@ Middlewares
 ------------
 
 Request Delegates: Simple "Use case"
-Convention based
-Factory based -> Popular
+Convention based: Request Delegate + InvokeAsync
+Factory based: IMiddleware + InvokeAsync
+
+
+51 Upgrade, .Net 7.0 to .Net 8.0
+------------
+
+- SDK (8.0.100), Installers x64 
+- ASP.NET Core Runtime (8.0.0), Installers x64 
+
+HealthCheck Icons problem
+Download fonts from their repository: https://github.com/Xabaril/AspNetCore.Diagnostics.HealthChecks/blob/master/src/HealthChecks.UI/assets/fonts/material.woff2
+
+Place it on the wwwroot/ui/resources then instead of material.woff2 set name 1ae4e3706fe3f478fcc1.woff2.
+
+Program.cs:
+builder.WebHost.UseWebRoot("wwwroot");
+
+var app = builder.Build();
+
+app.UseStaticFiles();
 
 
