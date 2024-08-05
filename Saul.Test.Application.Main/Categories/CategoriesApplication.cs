@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.Extensions.Logging;
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Application.Interface.UseCases;
@@ -16,12 +17,14 @@ namespace Saul.Test.Application.UseCases.Categories
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<CategoriesApplication> _logger;
         private readonly IDistributedCache _distributedCache;
 
-        public CategoriesApplication(IUnitOfWork unitOfWork, IMapper mapper, IDistributedCache distributedCache)
+        public CategoriesApplication(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CategoriesApplication> logger, IDistributedCache distributedCache)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
             _distributedCache = distributedCache;
         }
 

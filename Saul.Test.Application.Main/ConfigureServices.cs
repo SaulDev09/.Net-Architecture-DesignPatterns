@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Application.UseCases.Categories;
+using Saul.Test.Application.UseCases.Common.Behaviours;
 using Saul.Test.Application.UseCases.Customers;
 using Saul.Test.Application.UseCases.Discounts;
 using Saul.Test.Application.UseCases.Users;
@@ -16,6 +18,7 @@ namespace Saul.Test.Application.UseCases
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(LogginBehaviours<,>));
             });
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Application.Interface.UseCases;
@@ -14,11 +15,13 @@ namespace Saul.Test.Application.UseCases.Customers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ILogger<CustomersApplication> _logger;
 
-        public CustomersApplication(IUnitOfWork unitOfWork, IMapper mapper)
+        public CustomersApplication(IUnitOfWork unitOfWork, IMapper mapper, ILogger<CustomersApplication> logger)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _logger = logger;
         }
 
         public async Task<Response<bool>> Insert(CustomerDto customersDto)
@@ -88,6 +91,7 @@ namespace Saul.Test.Application.UseCases.Customers
             {
                 response.IsSuccess = true;
                 response.Message = "Successful query";
+                _logger.LogInformation("Test LogInfo GetAll - Successful query...");
             }
 
             return response;
