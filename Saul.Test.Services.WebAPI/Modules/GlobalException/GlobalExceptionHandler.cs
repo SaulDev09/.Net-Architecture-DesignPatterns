@@ -24,7 +24,7 @@ namespace Saul.Test.Services.WebAPI.Modules.GlobalException
             {
                 context.Response.ContentType = "application/json";
                 await JsonSerializer.SerializeAsync(context.Response.Body,
-                    new Response<Object> { Message = "Validation Error"});
+                    new Response<Object> { Message = "Validation Error", Errors = ex.Errors });
             }
             catch (Exception ex)
             {

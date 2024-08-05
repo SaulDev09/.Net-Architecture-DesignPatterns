@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Application.UseCases.Categories;
@@ -14,10 +15,13 @@ namespace Saul.Test.Application.UseCases
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
+            services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+
             services.AddMediatR(cfg =>
             {
                 cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
                 cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(LogginBehaviours<,>));
+                cfg.AddBehavior(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
             });
 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
