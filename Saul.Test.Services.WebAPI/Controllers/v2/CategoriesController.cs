@@ -18,12 +18,10 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
     public class CategoriesController : Controller
     {
         private readonly ICategoriesApplication _categoriesApplication;
-        private readonly ILoggerManager _logger;
 
-        public CategoriesController(ICategoriesApplication categoriesApplication, ILoggerManager logger)
+        public CategoriesController(ICategoriesApplication categoriesApplication)
         {
             _categoriesApplication = categoriesApplication;
-            _logger = logger;
         }
 
         [HttpGet("GetAll")]

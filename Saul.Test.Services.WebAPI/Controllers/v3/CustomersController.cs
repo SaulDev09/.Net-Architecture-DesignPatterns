@@ -8,7 +8,6 @@ using Saul.Test.Application.UseCases.Customers.Commands.UpdateCustomerCommand;
 using Saul.Test.Application.UseCases.Customers.Queries.GetAllCustomerQuery;
 using Saul.Test.Application.UseCases.Customers.Queries.GetAllWithPaginationCustomerQuery;
 using Saul.Test.Application.UseCases.Customers.Queries.GetCustomerQuery;
-using Saul.Test.Transversal.Common;
 
 namespace Saul.Test.Services.WebAPI.Controllers.v3
 {
@@ -19,12 +18,10 @@ namespace Saul.Test.Services.WebAPI.Controllers.v3
     public class CustomersController : Controller
     {
         private readonly IMediator _mediator;
-        private readonly ILoggerManager _logger;
 
-        public CustomersController(IMediator mediator, ILoggerManager logger)
+        public CustomersController(IMediator mediator)
         {
             _mediator = mediator;
-            _logger = logger;
         }
 
         [HttpGet("GetAll")]
@@ -34,7 +31,6 @@ namespace Saul.Test.Services.WebAPI.Controllers.v3
             var response = await _mediator.Send(new GetAllCustomerQuery());
             if (response.IsSuccess)
             {
-                _logger.LogInfo("Test LogInfo GetAll - request processed.");
                 return Ok(response);
             }
 

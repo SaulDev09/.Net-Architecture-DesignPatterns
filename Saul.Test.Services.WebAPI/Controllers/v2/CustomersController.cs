@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface.UseCases;
-using Saul.Test.Transversal.Common;
 
 namespace Saul.Test.Services.WebAPI.Controllers.v2
 {
@@ -14,12 +13,10 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
     public class CustomersController : Controller
     {
         private readonly ICustomersApplication _customersApplication;
-        private readonly ILoggerManager _logger;
 
-        public CustomersController(ICustomersApplication customersApplication, ILoggerManager logger)
+        public CustomersController(ICustomersApplication customersApplication)
         {
             _customersApplication = customersApplication;
-            _logger = logger;
         }
 
         [HttpGet("GetAll")]
@@ -28,7 +25,6 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
             var response = await _customersApplication.GetAll();
             if (response.IsSuccess)
             {
-                _logger.LogInfo("Test LogInfo GetAll - request processed.");
                 return Ok(response);
             }
 
@@ -41,7 +37,6 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
             var response = await _customersApplication.GetAllWithPagination(pageNumber, pageSize);
             if (response.IsSuccess)
             {
-                _logger.LogInfo("Test LogInfo GetAllWithPagination - request processed.");
                 return Ok(response);
             }
 

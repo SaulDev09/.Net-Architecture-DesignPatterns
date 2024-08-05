@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface.UseCases;
-using Saul.Test.Transversal.Common;
 
 namespace Saul.Test.Services.WebAPI.Controllers.v2
 {
@@ -14,12 +13,10 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
     public class DiscountsController : ControllerBase
     {
         private readonly IDiscountsApplication _discountsApplication;
-        private readonly ILoggerManager _logger;
 
-        public DiscountsController(IDiscountsApplication discountsApplication, ILoggerManager logger)
+        public DiscountsController(IDiscountsApplication discountsApplication)
         {
             _discountsApplication = discountsApplication;
-            _logger = logger;
         }
 
         [HttpGet("GetAll")]
@@ -91,7 +88,6 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
             var response = await _discountsApplication.GetAllWithPagination(pageNumber, pageSize);
             if (response.IsSuccess)
             {
-                _logger.LogInfo("Test LogInfo GetAllWithPagination - request processed.");
                 return Ok(response);
             }
 

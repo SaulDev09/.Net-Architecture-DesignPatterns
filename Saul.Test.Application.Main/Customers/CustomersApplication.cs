@@ -14,13 +14,11 @@ namespace Saul.Test.Application.UseCases.Customers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly ILoggerManager _logger;
 
-        public CustomersApplication(IUnitOfWork unitOfWork, IMapper mapper, ILoggerManager logger)
+        public CustomersApplication(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _logger = logger;
         }
 
         public async Task<Response<bool>> Insert(CustomerDto customersDto)
@@ -90,7 +88,6 @@ namespace Saul.Test.Application.UseCases.Customers
             {
                 response.IsSuccess = true;
                 response.Message = "Successful query";
-                _logger.LogInfo("Test LogInfo GetAll - Successful query...");
             }
 
             return response;

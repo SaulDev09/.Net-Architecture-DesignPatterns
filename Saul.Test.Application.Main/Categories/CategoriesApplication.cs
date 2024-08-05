@@ -16,14 +16,12 @@ namespace Saul.Test.Application.UseCases.Categories
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly ILoggerManager _logger;
         private readonly IDistributedCache _distributedCache;
 
-        public CategoriesApplication(IUnitOfWork unitOfWork, IMapper mapper, ILoggerManager logger, IDistributedCache distributedCache)
+        public CategoriesApplication(IUnitOfWork unitOfWork, IMapper mapper, IDistributedCache distributedCache)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _logger = logger;
             _distributedCache = distributedCache;
         }
 
