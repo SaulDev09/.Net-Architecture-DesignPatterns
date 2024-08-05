@@ -64,6 +64,7 @@ app.UseCors(myPolicy);
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseRateLimiter();
+app.UseRequestTimeouts();
 app.MapControllers();
 app.MapHealthChecksUI();
 app.MapHealthChecks("/health", new Microsoft.AspNetCore.Diagnostics.HealthChecks.HealthCheckOptions

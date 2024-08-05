@@ -1,4 +1,5 @@
-﻿using System.Text.Json.Serialization;
+﻿using Microsoft.AspNetCore.Http.Timeouts;
+using System.Text.Json.Serialization;
 
 namespace Saul.Test.Services.WebAPI.Modules.Feature
 {
@@ -16,6 +17,13 @@ namespace Saul.Test.Services.WebAPI.Modules.Feature
             {
                 var enumConverter = new JsonStringEnumConverter();
                 opts.JsonSerializerOptions.Converters.Add(enumConverter);
+            });
+
+            services.AddRequestTimeouts(options =>
+            {
+                options.DefaultPolicy =
+                    new RequestTimeoutPolicy { Timeout = TimeSpan.FromMilliseconds(1500) };
+                options.AddPolicy("CustomPolicy", TimeSpan.FromMilliseconds(2000));
             });
 
             return services;

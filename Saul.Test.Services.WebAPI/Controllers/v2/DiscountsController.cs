@@ -1,5 +1,6 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http.Timeouts;
 using Microsoft.AspNetCore.Mvc;
 using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface.UseCases;
@@ -22,7 +23,7 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var response = await _discountsApplication.GetAll();
+            var response = await _discountsApplication.GetAll(HttpContext.RequestAborted);
             if (response.IsSuccess)
                 return Ok(response);
 
@@ -30,9 +31,10 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
         }
 
         [HttpGet("Get/{id}")]
+        [RequestTimeout("CustomPolicy")]
         public async Task<IActionResult> Get(int id)
         {
-            var response = await _discountsApplication.Get(id);
+            var response = await _discountsApplication.Get(id, HttpContext.RequestAborted);
             if (response.IsSuccess)
                 return Ok(response);
 
