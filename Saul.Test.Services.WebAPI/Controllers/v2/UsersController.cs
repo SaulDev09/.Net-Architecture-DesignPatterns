@@ -51,6 +51,12 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_appSettings.Secret);
+            var claims = new Dictionary<string, object>
+            {
+                { "userId", usersDto.Data.UserId.ToString() },
+                { "username", usersDto.Data.UserName }
+            };
+
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new Claim[]
@@ -60,7 +66,8 @@ namespace Saul.Test.Services.WebAPI.Controllers.v2
                 Expires = DateTime.UtcNow.AddMinutes(10),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
                 Issuer = _appSettings.Issuer,
-                Audience = _appSettings.Audience
+                Audience = _appSettings.Audience,
+                Claims = claims
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var tokenString = tokenHandler.WriteToken(token);

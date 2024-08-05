@@ -17,6 +17,8 @@ namespace Saul.Test.Services.WebAPI.Modules.Authentication
             var Issuer = appSettings.Issuer;
             var Audience = appSettings.Audience;
 
+            services.AddHttpContextAccessor();
+
             // Validate and Verify JWTBearer token
             services.AddAuthentication(x =>
             {
@@ -38,7 +40,7 @@ namespace Saul.Test.Services.WebAPI.Modules.Authentication
                     {
                         if (context.Exception.GetType() == typeof(SecurityTokenExpiredException))
                         {
-                            context.Response.Headers.Add("Token-Expired", "true");
+                            context.Response.Headers.Append("Token-Expired", "true");
                         }
                         return Task.CompletedTask;
                     }

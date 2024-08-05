@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Saul.Test.Application.Interface.Presentation;
 using Saul.Test.Domain.Common;
 using System;
 using System.Threading;
@@ -9,6 +10,13 @@ namespace Saul.Test.Persistence.Interceptor
 {
     public class AuditableEntitySaveChangesInterceptor : SaveChangesInterceptor
     {
+        private readonly ICurrentUser _currentUser;
+
+        public AuditableEntitySaveChangesInterceptor(ICurrentUser currentUser)
+        {
+            _currentUser = currentUser;
+        }
+
         public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
         {
             UpdateEntities(eventData.Context);
@@ -29,13 +37,13 @@ namespace Saul.Test.Persistence.Interceptor
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Entity.CreatedBy = "System";
+                    entry.Entity.CreatedBy = _currentUser.UserName;
                     entry.Entity.Created = DateTime.Now;
                 }
 
                 if (entry.State == EntityState.Modified)
                 {
-                    entry.Entity.LastModifiedBy = "System";
+                    entry.Entity.LastModifiedBy = _currentUser.UserName;
                     entry.Entity.LastModified = DateTime.Now;
                 }
             }
