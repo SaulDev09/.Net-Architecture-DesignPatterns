@@ -16,7 +16,7 @@ namespace Saul.Test.Persistence.Repositories
             _context = context;
         }
 
-        public User Authenticate(string userName, string password)
+        public async Task<User> Authenticate(string userName, string password)
         {
             using (var connection = _context.CreateConnection())
             {
@@ -25,7 +25,7 @@ namespace Saul.Test.Persistence.Repositories
                 parameters.Add("username", userName);
                 parameters.Add("password", password);
 
-                var user = connection.QuerySingle<User>(query, param: parameters, commandType: System.Data.CommandType.StoredProcedure);
+                var user = await connection.QuerySingleAsync<User>(query, param: parameters, commandType: System.Data.CommandType.StoredProcedure);
                 return user;
             }
 
