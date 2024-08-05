@@ -3,7 +3,6 @@ using Saul.Test.Application.DTO;
 using Saul.Test.Application.Interface.Infrastructure;
 using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Application.Interface.UseCases;
-using Saul.Test.Application.Validator;
 using Saul.Test.Domain.Entities;
 using Saul.Test.Domain.Events;
 using Saul.Test.Transversal.Common;
@@ -19,15 +18,13 @@ namespace Saul.Test.Application.UseCases.Discounts
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        private readonly DiscountDtoValidator _discountDtoValidator;
         private readonly IEventBus _eventBus;
         private readonly INotification _notification;
 
-        public DiscountsApplication(IUnitOfWork unitOfWork, IMapper mapper, DiscountDtoValidator discountDtoValidator, IEventBus eventBus, INotification notification)
+        public DiscountsApplication(IUnitOfWork unitOfWork, IMapper mapper, IEventBus eventBus, INotification notification)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
-            _discountDtoValidator = discountDtoValidator;
             _eventBus = eventBus;
             _notification = notification;
         }
@@ -37,13 +34,6 @@ namespace Saul.Test.Application.UseCases.Discounts
             var response = new Response<bool>();
             try
             {
-                var validation = await _discountDtoValidator.ValidateAsync(discountDto, cancellationToken);
-                if (!validation.IsValid)
-                {
-                    response.Message = "Validation Error";
-                    response.Errors = validation.Errors;
-                    return response;
-                }
                 var discount = _mapper.Map<Discount>(discountDto);
                 await _unitOfWork.Discounts.Insert(discount);
 
@@ -74,13 +64,6 @@ namespace Saul.Test.Application.UseCases.Discounts
             var response = new Response<bool>();
             try
             {
-                var validation = await _discountDtoValidator.ValidateAsync(discountDto, cancellationToken);
-                if (!validation.IsValid)
-                {
-                    response.Message = "Validation Error";
-                    response.Errors = validation.Errors;
-                    return response;
-                }
                 var discount = _mapper.Map<Discount>(discountDto);
                 await _unitOfWork.Discounts.Update(discount);
 

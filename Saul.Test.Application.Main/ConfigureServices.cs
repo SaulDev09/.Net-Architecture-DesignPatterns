@@ -6,7 +6,6 @@ using Saul.Test.Application.UseCases.Common.Behaviours;
 using Saul.Test.Application.UseCases.Customers;
 using Saul.Test.Application.UseCases.Discounts;
 using Saul.Test.Application.UseCases.Users;
-using Saul.Test.Application.Validator;
 using System.Reflection;
 
 namespace Saul.Test.Application.UseCases
@@ -27,8 +26,6 @@ namespace Saul.Test.Application.UseCases
             services.AddScoped<ICategoriesApplication, CategoriesApplication>();
             services.AddScoped<IDiscountsApplication, DiscountsApplication>();
 
-            services.AddTransient<UsersDtoValidator>();
-            services.AddTransient<DiscountDtoValidator>();
             return services;
         }
 

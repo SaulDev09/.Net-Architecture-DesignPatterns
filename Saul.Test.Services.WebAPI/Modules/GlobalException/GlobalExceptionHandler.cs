@@ -1,4 +1,5 @@
-﻿using Saul.Test.Transversal.Common;
+﻿using Saul.Test.Application.UseCases.Common.Exceptions;
+using Saul.Test.Transversal.Common;
 using System.Net;
 using System.Text.Json;
 
@@ -18,6 +19,12 @@ namespace Saul.Test.Services.WebAPI.Modules.GlobalException
             try
             {
                 await next(context);
+            }
+            catch (ValidationExceptionCustom ex)
+            {
+                context.Response.ContentType = "application/json";
+                await JsonSerializer.SerializeAsync(context.Response.Body,
+                    new Response<Object> { Message = "Validation Error"});
             }
             catch (Exception ex)
             {
