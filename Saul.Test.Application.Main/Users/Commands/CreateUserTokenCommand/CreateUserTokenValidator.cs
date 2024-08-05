@@ -7,7 +7,7 @@ namespace Saul.Test.Application.UseCases.Users.Commands.CreateUserTokenCommand
         public CreateUserTokenValidator()
         {
             RuleFor(u => u.UserName).NotNull().NotEmpty();
-            RuleFor(u => u.Password).NotNull().NotEmpty().MinimumLength(8);
+            RuleFor(u => u.Password).NotNull().NotEmpty().MinimumLength(6);
         }
     }
 }
