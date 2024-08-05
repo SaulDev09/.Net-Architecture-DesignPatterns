@@ -19,7 +19,7 @@ namespace Saul.Test.Application.Test
         }
 
         [TestMethod]
-        public void Authenticate_WhenParamsAreNull_ReturnErrorValidation()
+        public async void Authenticate_WhenParamsAreNull_ReturnErrorValidation()
         {
             using var scope = _scopeFactory.CreateScope();
             var context = scope.ServiceProvider.GetService<IUsersApplication>();
@@ -28,14 +28,14 @@ namespace Saul.Test.Application.Test
             var password = string.Empty;
             var expected = "Validation Error";
 
-            var result = context.Authenticate(userName, password);
+            var result = await context.Authenticate(userName, password);
             var current = result.Message;
 
             Assert.AreEqual(expected, current);
         }
 
         [TestMethod]
-        public void Authenticate_WhenParamsAreRight_ReturnSuccess()
+        public async void Authenticate_WhenParamsAreRight_ReturnSuccess()
         {
             using var scope = _scopeFactory.CreateScope();
             var context = scope.ServiceProvider.GetService<IUsersApplication>();
@@ -44,14 +44,14 @@ namespace Saul.Test.Application.Test
             var password = "123456";
             var expected = "Successful Authentication";
 
-            var result = context.Authenticate(userName, password);
+            var result = await context.Authenticate(userName, password);
             var current = result.Message;
 
             Assert.AreEqual(expected, current);
         }
 
         [TestMethod]
-        public void Authenticate_WhenParamsAreWrong_ReturnUserDoesntExist()
+        public async void Authenticate_WhenParamsAreWrong_ReturnUserDoesntExist()
         {
             using var scope = _scopeFactory.CreateScope();
             var context = scope.ServiceProvider.GetService<IUsersApplication>();
@@ -60,7 +60,7 @@ namespace Saul.Test.Application.Test
             var password = "123123";
             var expected = "User doesn't exist";
 
-            var result = context.Authenticate(userName, password);
+            var result = await context.Authenticate(userName, password);
             var current = result.Message;
 
             Assert.AreEqual(expected, current);

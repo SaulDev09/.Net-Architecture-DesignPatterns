@@ -4,6 +4,7 @@ using Saul.Test.Application.Interface.Persistence;
 using Saul.Test.Application.Interface.UseCases;
 using Saul.Test.Transversal.Common;
 using System;
+using System.Threading.Tasks;
 
 namespace Saul.Test.Application.UseCases.Users
 {
@@ -18,13 +19,13 @@ namespace Saul.Test.Application.UseCases.Users
             _mapper = mapper;
         }
 
-        public Response<UserDto> Authenticate(string userName, string password)
+        public async Task<Response<UserDto>> Authenticate(string userName, string password)
         {
             var response = new Response<UserDto>();           
 
             try
             {
-                var user = _unitOfWork.Users.Authenticate(userName, password);
+                var user = await _unitOfWork.Users.Authenticate(userName, password);
                 response.Data = _mapper.Map<UserDto>(user);
                 response.IsSuccess = true;
                 response.Message = "Successful Authentication";
