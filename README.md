@@ -1,5 +1,6 @@
 ![Net-DDD-Page-2 drawio](https://github.com/user-attachments/assets/de442043-e2a3-48e3-b77d-3091db51be23)
 
+![Net-DDD-02-ServiceLayer-v2 drawio](https://github.com/user-attachments/assets/1db22a04-089c-47f4-9f64-97d2e280ba08)
 
 To add Swagger:
 1. Add Swashbuckle.AspNetCore
