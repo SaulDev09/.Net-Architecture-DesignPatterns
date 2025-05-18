@@ -1,5 +1,10 @@
 ![Net-DDD-Page-2 drawio](https://github.com/user-attachments/assets/de442043-e2a3-48e3-b77d-3091db51be23)
 
+## Clean Architecture 
+![Net-DDD-40-CleanArchitecture-03 drawio](https://github.com/user-attachments/assets/9031e7b3-4369-4923-bac4-953c5ef1036b)
+![Net-DDD-38-CleanArchitecture-02 drawio](https://github.com/user-attachments/assets/9466fc5f-5109-4804-a220-62b536d9dd8c)
+![Net-DDD-37-CleanArchitecture-01 drawio](https://github.com/user-attachments/assets/5042069c-e419-473f-a27a-a6ee9492d9a7)
+
 ![Net-DDD-36-RateLimitingPattern drawio](https://github.com/user-attachments/assets/2f8fb66f-ce79-45df-b3aa-8ea741696ad0)
 
 ![Net-DDD-02-ServiceLayer-v2 drawio](https://github.com/user-attachments/assets/1db22a04-089c-47f4-9f64-97d2e280ba08)
